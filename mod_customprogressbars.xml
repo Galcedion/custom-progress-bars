@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>Custom Progress Bars</name>
+	<author>Galcedion</author>
+	<authorUrl>https://galcedion.com</authorUrl>
+	<creationDate>2025</creationDate>
+	<version>1.0.0</version>
+	<license>GPL-3.0</license>
+	<description>TODO</description>
+	<files>
+        <filename module="mod_customprogressbars">mod_customprogressbars.php</filename>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="g_class"
+					type="text"
+					label="Main class"
+					default="g-mod-cpb"
+					required="1"
+					description="TODO"/>
+				<field
+					name="title_position_default"
+					type="list"
+					default="1"
+					label="Default title position"
+					description="Default for positioning the progress bar title in relation to the actual progress bar">
+					<option value="1">Inside</option>
+					<option value="2">Above</option>
+					<option value="3">Below</option>
+					<option value="4">Left</option>
+					<option value="5">Right</option>
+				</field>
+				<field
+					name="progress_position_default"
+					type="list"
+					default="1"
+					label="Default progress (text) position"
+					description="Default for positioning the progress bar progress in relation to the actual progress bar">
+					<option value="1">Inside</option>
+					<option value="2">Above</option>
+					<option value="3">Below</option>
+					<option value="4">Left</option>
+					<option value="5">Right</option>
+				</field>
+				<field
+					name="custom_css"
+					type="textarea"
+					label="Custom CSS"
+					rows="10"
+					description=""/>
+			</fieldset>
+			<fieldset name="cpb" label="Progress Bars">
+				<field
+					name="cbp_form"
+					type="subform"
+					label="Progress Bar"
+					multiple="true">
+					<form>
+						<field
+							name="cpb_title_show"
+							type="radio"
+							default="1"
+							label="Display title"
+							layout="joomla.form.field.radio.switcher">
+							<option value="0">JNo</option>
+							<option value="1">JYes</option>
+						</field>
+						<field
+							name="cpb_title"
+							type="text"
+							label="Title"/>
+						<field
+							name="cpb_title_sub"
+							type="subform"
+							label="Title in alternative languages"
+							multiple="true">
+							<form>
+								<field
+									name="cpb_title_sub_text"
+									type="text"
+									label="Title"/>
+								<field
+									name="cpb_title_sub_lang"
+									type="contentlanguage"
+									label="Title language"
+									description="The title will be applied to all users that use the selected language."/>
+							</form>
+						</field>
+						<field
+							name="cpb_title_position"
+							type="list"
+							default="0"
+							label="Title position"
+							description="Position of the title in relation to the progress bar">
+							<option value="0">Default</option>
+							<option value="1">Inside</option>
+							<option value="2">Above</option>
+							<option value="3">Below</option>
+							<option value="4">Left</option>
+							<option value="5">Right</option>
+						</field>
+						<field
+							name="cpb_s_title_progress"
+							type="spacer"
+							label=""
+							hr="true"/>
+						<field
+							name="cpb_progress_show"
+							type="radio"
+							default="1"
+							label="Display progress (text)"
+							layout="joomla.form.field.radio.switcher">
+							<option value="0">JNo</option>
+							<option value="1">JYes</option>
+						</field>
+						<field
+							name="cpb_progress_position"
+							type="list"
+							default="0"
+							label="Progress position"
+							description="Position of the progress text in relation to the progress bar">
+							<option value="0">Default</option>
+							<option value="1">Inside</option>
+							<option value="2">Above</option>
+							<option value="3">Below</option>
+							<option value="4">Left</option>
+							<option value="5">Right</option>
+						</field>
+						<field
+							name="cpb_progress_min"
+							type="number"
+							label="Current Progress"
+							default="0"
+							step="1"/>
+						<field
+							name="cpb_progress_max"
+							type="number"
+							label="Maximum Progress"
+							default="100"
+							step="1"/>
+						<field
+							name="cpb_progress_percent"
+							type="radio"
+							default="1"
+							label="Progress as percent?"
+							layout="joomla.form.field.radio.switcher">
+							<option value="0">JNo</option>
+							<option value="1">JYes</option>
+						</field>
+						<field
+							name="cpb_progress_label"
+							type="text"
+							label="Progress unit"
+							default=""
+							description="Alternative label for the progress. Can be empty. Will not be applied, when progress is displayed as percentage."/>
+						<field
+							name="cpb_progress_label_sub"
+							type="subform"
+							label="Progress unit in alternative languages"
+							multiple="true">
+							<form>
+								<field
+									name="cpb_progress_label_sub_text"
+									type="text"
+									label="Progress unit"/>
+								<field
+									name="cpb_progress_label_sub_lang"
+									type="contentlanguage"
+									label="Progress unit language"
+									description="The progress unit will be applied to all users that use the selected language."/>
+							</form>
+						</field>
+					</form>
+				</field>
+			</fieldset>
+		</fields>
+    </config>
+</extension>
