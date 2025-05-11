@@ -48,6 +48,12 @@ class ModCustomProgressBars
 			} else {
 				$g_cpb_config['cpb'][$key]['display_progress'] = FALSE;
 			}
+			if(!$g_cpb_config['cpb'][$key]['cpb_custom_colors']) {
+				$g_cpb_config['cpb'][$key]['cpb_color_text'] = $g_cpb_config['color_text_default'];
+				$g_cpb_config['cpb'][$key]['cpb_color_bg'] = $g_cpb_config['color_bg_default'];
+				$g_cpb_config['cpb'][$key]['cpb_color_filled'] = $g_cpb_config['color_filled_default'];
+				$g_cpb_config['cpb'][$key]['cpb_color_empty'] = $g_cpb_config['color_empty_default'];
+			}
 			$g_cpb_config['cpb'][$key]['progress_with'] = 'width:' . (100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . '%';
 		}
 		return $g_cpb_config['cpb'];

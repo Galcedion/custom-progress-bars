@@ -17,17 +17,19 @@ $param_list_int = [
 	'title_position_default', 'progress_position_default'
 ];
 $param_list_str = [
-	'g_class', 'custom_css'
+	'g_class', 'custom_css', 'color_text_default', 'color_bg_default',
+	'color_filled_default', 'color_empty_default'
 ];
 $progress_form_list_bool = [
 	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force',
-	'cpb_enabled'
+	'cpb_enabled', 'cpb_custom_colors'
 ];
 $progress_form_list_int = [
 	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max'
 ];
 $progress_form_list_str = [
-	'cpb_title', 'cpb_progress_label'
+	'cpb_title', 'cpb_progress_label', 'cpb_color_text', 'cpb_color_bg',
+	'cpb_color_filled', 'cpb_color_empty'
 ];
 /* building main config */
 $stored_config = $params->toArray();

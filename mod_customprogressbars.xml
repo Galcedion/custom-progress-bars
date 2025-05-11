@@ -47,6 +47,30 @@
 					<option value="5">Right</option>
 				</field>
 				<field
+					name="color_text_default"
+					type="color"
+					default="#000"
+					format="rgb"
+					label="Default text color"/>
+				<field
+					name="color_bg_default"
+					type="color"
+					default="#FFF0"
+					format="rgba"
+					label="Default progress bar background color"/>
+				<field
+					name="color_filled_default"
+					type="color"
+					default="#0F0"
+					format="rgba"
+					label="Default progress bar filled color"/>
+				<field
+					name="color_empty_default"
+					type="color"
+					default="#F00"
+					format="rgba"
+					label="Default progress bar empty color"/>
+				<field
 					name="custom_css"
 					type="textarea"
 					label="Custom CSS"
@@ -140,6 +164,40 @@
 							label="Progress unit"
 							default=""
 							description="Alternative label for the progress. Can be empty. Will not be applied, when progress is displayed as percentage."/>
+						<field
+							name="cpb_custom_colors"
+							type="radio"
+							default="0"
+							label="Use custom colors?"
+							layout="joomla.form.field.radio.switcher"
+							description="If enabled, individual colors can be set for each progress bar. Otherwise the default is used.">
+							<option value="0">JNo</option>
+							<option value="1">JYes</option>
+						</field>
+						<field
+							name="cpb_color_text"
+							type="color"
+							default="#000"
+							format="rgb"
+							label="Default text color"/>
+						<field
+							name="cpb_color_bg"
+							type="color"
+							default="#FFF0"
+							format="rgba"
+							label="Default progress bar background color"/>
+						<field
+							name="cpb_color_filled"
+							type="color"
+							default="#0F0"
+							format="rgba"
+							label="Default progress bar filled color"/>
+						<field
+							name="cpb_color_empty"
+							type="color"
+							default="#F00"
+							format="rgba"
+							label="Default progress bar empty color"/>
 						<field
 							name="cpb_lang_force"
 							type="radio"

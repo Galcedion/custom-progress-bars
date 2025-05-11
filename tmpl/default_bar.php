@@ -9,15 +9,15 @@
  */
 defined('_JEXEC') or die;
 ?>
-<div>
+<div style="color:<?=$cpb['cpb_color_text'];?>">
 	<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 2): ?>
 	<div><?=$cpb['display_title'];?></div>
 	<?php endif; ?>
 	<?php if($cpb['display_progress'] && $cpb['cpb_progress_position'] == 2): ?>
 	<strong><?=$cpb['display_progress'];?></strong>
 	<?php endif; ?>
-	<div class="progress">
-		<div class="bg-info" style="<?=$cpb['progress_with'];?>">
+	<div class="progress" style="background-color:<?=$cpb['cpb_color_bg'];?>">
+		<div style="<?=$cpb['progress_with'];?>;background-color:<?=$cpb['cpb_color_empty'];?>">
 		<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 1): ?>
 		<div class="text-center"><?=$cpb['display_title'];?></div>
 		<?php endif; ?>
