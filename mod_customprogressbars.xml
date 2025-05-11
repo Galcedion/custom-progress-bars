@@ -74,23 +74,6 @@
 							type="text"
 							label="Title"/>
 						<field
-							name="cpb_title_sub"
-							type="subform"
-							label="Title in alternative languages"
-							multiple="true">
-							<form>
-								<field
-									name="cpb_title_sub_text"
-									type="text"
-									label="Title"/>
-								<field
-									name="cpb_title_sub_lang"
-									type="contentlanguage"
-									label="Title language"
-									description="The title will be applied to all users that use the selected language."/>
-							</form>
-						</field>
-						<field
 							name="cpb_title_position"
 							type="list"
 							default="0"
@@ -158,20 +141,34 @@
 							default=""
 							description="Alternative label for the progress. Can be empty. Will not be applied, when progress is displayed as percentage."/>
 						<field
-							name="cpb_progress_label_sub"
+							name="cpb_lang_force"
+							type="radio"
+							default="0"
+							label="Force alternative languages?"
+							layout="joomla.form.field.radio.switcher"
+							description="When enabled, only languages specified in alternative languages will see this progress bar.">
+							<option value="0">JNo</option>
+							<option value="1">JYes</option>
+						</field>
+						<field
+							name="cpb_lang_sub"
 							type="subform"
-							label="Progress unit in alternative languages"
+							label="Alternative languages"
 							multiple="true">
 							<form>
 								<field
-									name="cpb_progress_label_sub_text"
+									name="cpb_lang_sub_lang"
+									type="contentlanguage"
+									label="Title language"
+									description="The alternatives will be applied to all users that use the selected language."/>
+								<field
+									name="cpb_lang_sub_title"
+									type="text"
+									label="Title"/>
+								<field
+									name="cpb_lang_sub_progress_label"
 									type="text"
 									label="Progress unit"/>
-								<field
-									name="cpb_progress_label_sub_lang"
-									type="contentlanguage"
-									label="Progress unit language"
-									description="The progress unit will be applied to all users that use the selected language."/>
 							</form>
 						</field>
 					</form>

@@ -23,6 +23,13 @@ class ModCustomProgressBars
 	 */
 	public static function prepare_progress_bars($g_cpb_config) {
 		foreach($g_cpb_config['cpb'] as $key => $bar) {
+			if($g_cpb_config['cpb'][$key]['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) {
+				unset($g_cpb_config['cpb'][$key]);
+				continue;
+			} elseif(array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) {
+				$g_cpb_config['cpb'][$key]['cpb_title'] =  $g_cpb_config['cpb'][$key]['lang_alt'][$g_cpb_config['current_lang']]['title'];
+				$g_cpb_config['cpb'][$key]['cpb_progress_label'] =  $g_cpb_config['cpb'][$key]['lang_alt'][$g_cpb_config['current_lang']]['progress_label'];
+			}
 			if($g_cpb_config['cpb'][$key]['cpb_title_position'] == 0)
 				$g_cpb_config['cpb'][$key]['cpb_title_position'] = $g_cpb_config['title_position_default'];
 			if($g_cpb_config['cpb'][$key]['cpb_progress_position'] == 0)

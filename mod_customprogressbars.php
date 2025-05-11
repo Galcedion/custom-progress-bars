@@ -20,7 +20,7 @@ $param_list_str = [
 	'g_class', 'custom_css'
 ];
 $progress_form_list_bool = [
-	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent'
+	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force'
 ];
 $progress_form_list_int = [
 	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max'
@@ -54,13 +54,9 @@ foreach($stored_config['cbp_form'] as $cbp_form => $form_data) {
 		$g_cpb_config['cpb'][$cbp_form]['cpb_title_position'] = $g_cpb_config['title_position_default'];
 	if($g_cpb_config['cpb'][$cbp_form]['cpb_progress_position'] == 0)
 		$g_cpb_config['cpb'][$cbp_form]['cpb_progress_position'] = $g_cpb_config['progress_position_default'];
-	$g_cpb_config['cpb'][$cbp_form]['title_lang'] = [];
-	foreach($form_data['cpb_title_sub'] as $title_form) {
-		$g_cpb_config['cpb'][$cbp_form]['title_lang'][$title_form['cpb_title_sub_lang']] = $title_form['cpb_title_sub_text'];
-	}
-	$g_cpb_config['cpb'][$cbp_form]['progress_lang'] = [];
-	foreach($form_data['cpb_progress_label_sub'] as $progress_label_form) {
-		$g_cpb_config['cpb'][$cbp_form]['progress_lang'][$progress_label_form['cpb_progress_label_sub_lang']] = $progress_label_form['cpb_progress_label_sub_text'];
+	$g_cpb_config['cpb'][$cbp_form]['lang_alt'] = [];
+	foreach($form_data['cpb_lang_sub'] as $lang_form) {
+		$g_cpb_config['cpb'][$cbp_form]['lang_alt'][$lang_form['cpb_lang_sub_lang']] = ['title' => $lang_form['cpb_lang_sub_title'], 'progress_label' => $lang_form['cpb_lang_sub_progress_label']];
 	}
 }
 $g_cpb_config['current_lang'] = Factory::getLanguage()->getTag(); // the language the user is currently using
