@@ -10,26 +10,26 @@
 defined('_JEXEC') or die;
 ?>
 <div>
-	<?php if($cpb['cpb_title_show'] && $cpb['cpb_title_position'] == 2): ?>
-	<div><?=$cpb['cpb_title'];?></div>
+	<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 2): ?>
+	<div><?=$cpb['display_title'];?></div>
 	<?php endif; ?>
-	<?php if($cpb['cpb_progress_show'] && $cpb['cpb_progress_position'] == 2): ?>
-	<strong><?=['cpb_progress_min'] . ' / ' . $cpb['cpb_progress_max'];?></strong>
+	<?php if($cpb['display_progress'] && $cpb['cpb_progress_position'] == 2): ?>
+	<strong><?=$cpb['display_progress'];?></strong>
 	<?php endif; ?>
 	<div class="progress">
-		<div class="bg-info" style="width:<?=(100/$cpb['cpb_progress_max']*$cpb['cpb_progress_min']);?>%">
-		<?php if($cpb['cpb_title_show'] && $cpb['cpb_title_position'] == 1): ?>
-		<div class="text-center"><?=$cpb['cpb_title'];?></div>
+		<div class="bg-info" style="<?=$cpb['progress_with'];?>">
+		<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 1): ?>
+		<div class="text-center"><?=$cpb['display_title'];?></div>
 		<?php endif; ?>
-		<?php if($cpb['cpb_progress_show'] && $cpb['cpb_progress_position'] == 1): ?>
-		<div class="text-center"><?=$cpb['cpb_progress_min'] . ' / ' . $cpb['cpb_progress_max'];?></div>
+		<?php if($cpb['display_progress'] && $cpb['cpb_progress_position'] == 1): ?>
+		<div class="text-center"><?=$cpb['display_progress'];?></div>
 		<?php endif; ?>
 		</div>
 	</div>
-	<?php if($cpb['cpb_title_show'] && $cpb['cpb_title_position'] == 3): ?>
-	<strong><?=$cpb['cpb_title'];?></strong>
+	<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 3): ?>
+	<strong><?=$cpb['display_title'];?></strong>
 	<?php endif; ?>
-	<?php if($cpb['cpb_progress_show'] && $cpb['cpb_progress_position'] == 3): ?>
-	<strong><?=$cpb['cpb_progress_min'] . ' / ' . $cpb['cpb_progress_max'];?></strong>
+	<?php if($cpb['display_progress'] && $cpb['cpb_progress_position'] == 3): ?>
+	<strong><?=$cpb['display_progress'];?></strong>
 	<?php endif; ?>
 </div>

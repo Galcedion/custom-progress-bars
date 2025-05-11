@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
+require_once dirname(__FILE__) . '/helper.php';
 
 /* types of config parameters (only these will be used) */
 $param_list_int = [
@@ -64,5 +65,7 @@ foreach($stored_config['cbp_form'] as $cbp_form => $form_data) {
 }
 $g_cpb_config['current_lang'] = Factory::getLanguage()->getTag(); // the language the user is currently using
 /* config ready */
+
+$g_cpb_config['cpb'] = ModCustomProgressBars::prepare_progress_bars($g_cpb_config);
 
 require ModuleHelper::getLayoutPath('mod_customprogressbars'); // this loads the tmpl/default.php

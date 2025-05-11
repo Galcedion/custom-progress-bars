@@ -9,6 +9,7 @@
 	<description>TODO</description>
 	<files>
         <filename module="mod_customprogressbars">mod_customprogressbars.php</filename>
+        <filename>helper.php</filename>
         <folder>tmpl</folder>
     </files>
     <config>
