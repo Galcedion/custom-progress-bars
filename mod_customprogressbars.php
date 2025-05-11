@@ -20,7 +20,8 @@ $param_list_str = [
 	'g_class', 'custom_css'
 ];
 $progress_form_list_bool = [
-	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force'
+	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force',
+	'cpb_enabled'
 ];
 $progress_form_list_int = [
 	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max'

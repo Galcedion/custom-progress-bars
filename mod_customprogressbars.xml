@@ -171,6 +171,15 @@
 									label="Progress unit"/>
 							</form>
 						</field>
+						<field
+							name="cpb_enabled"
+							type="radio"
+							default="1"
+							label="Show this progress bar?"
+							layout="joomla.form.field.radio.switcher">
+							<option value="0">JNo</option>
+							<option value="1">JYes</option>
+						</field>
 					</form>
 				</field>
 			</fieldset>

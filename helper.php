@@ -23,7 +23,10 @@ class ModCustomProgressBars
 	 */
 	public static function prepare_progress_bars($g_cpb_config) {
 		foreach($g_cpb_config['cpb'] as $key => $bar) {
-			if($g_cpb_config['cpb'][$key]['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) {
+			if(!$g_cpb_config['cpb'][$key]['cpb_enabled']) {
+				unset($g_cpb_config['cpb'][$key]);
+				continue;
+			} elseif($g_cpb_config['cpb'][$key]['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) {
 				unset($g_cpb_config['cpb'][$key]);
 				continue;
 			} elseif(array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) {
