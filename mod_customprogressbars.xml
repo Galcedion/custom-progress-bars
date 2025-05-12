@@ -120,6 +120,11 @@
 					multiple="true">
 					<form>
 						<field
+							name="cpb_class"
+							type="text"
+							label="Progress bar class"
+							description="Extra individual class for the progress bar"/>
+						<field
 							name="cpb_title_show"
 							type="radio"
 							default="1"

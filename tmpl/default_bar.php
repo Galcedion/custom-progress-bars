@@ -8,8 +8,9 @@
  * @license    GNU/GPL: https://gnu.org/licenses/gpl.html
  */
 defined('_JEXEC') or die;
+$cpb_class = $cpb['cpb_class'] === '' ? '' : ' class="' . $cpb['cpb_class'] . '"';
 ?>
-<div style="color:<?=$cpb['cpb_color_text'];?>"<?=$cpb['tooltip'];?>>
+<div style="color:<?=$cpb['cpb_color_text'];?>"<?=$cpb_class;?><?=$cpb['tooltip'];?>>
 	<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 2): ?>
 	<div><?=$cpb['display_title'];?></div>
 	<?php endif; ?>

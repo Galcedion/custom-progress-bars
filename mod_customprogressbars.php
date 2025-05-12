@@ -29,8 +29,8 @@ $progress_form_list_int = [
 	'cpb_mouseover'
 ];
 $progress_form_list_str = [
-	'cpb_title', 'cpb_progress_label', 'cpb_color_text', 'cpb_color_bg',
-	'cpb_color_filled', 'cpb_color_empty'
+	'cpb_class', 'cpb_title', 'cpb_progress_label',
+	'cpb_color_text', 'cpb_color_bg', 'cpb_color_filled', 'cpb_color_empty'
 ];
 /* building main config */
 $stored_config = $params->toArray();
