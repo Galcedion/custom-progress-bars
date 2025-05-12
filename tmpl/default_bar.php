@@ -9,7 +9,7 @@
  */
 defined('_JEXEC') or die;
 ?>
-<div style="color:<?=$cpb['cpb_color_text'];?>">
+<div style="color:<?=$cpb['cpb_color_text'];?>"<?=$cpb['tooltip'];?>>
 	<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 2): ?>
 	<div><?=$cpb['display_title'];?></div>
 	<?php endif; ?>

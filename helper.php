@@ -37,6 +37,8 @@ class ModCustomProgressBars
 				$g_cpb_config['cpb'][$key]['cpb_title_position'] = $g_cpb_config['title_position_default'];
 			if($g_cpb_config['cpb'][$key]['cpb_progress_position'] == 0)
 				$g_cpb_config['cpb'][$key]['cpb_progress_position'] = $g_cpb_config['progress_position_default'];
+			if($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 0)
+				$g_cpb_config['cpb'][$key]['cpb_mouseover'] = $g_cpb_config['mouseover_default'];
 			$g_cpb_config['cpb'][$key]['display_title'] = $g_cpb_config['cpb'][$key]['cpb_title_show'] ? $g_cpb_config['cpb'][$key]['cpb_title'] : FALSE;
 			if($g_cpb_config['cpb'][$key]['cpb_progress_show']) {
 				if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {
@@ -47,6 +49,19 @@ class ModCustomProgressBars
 				}
 			} else {
 				$g_cpb_config['cpb'][$key]['display_progress'] = FALSE;
+			}
+			/* build tooltip */
+			$g_cpb_config['cpb'][$key]['tooltip'] = ''; // None (1) or out of bounds
+			if($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 2) // Show title
+				$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . $g_cpb_config['cpb'][$key]['cpb_title'] . '"';
+			elseif($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 3) // Show progress
+				$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . $g_cpb_config['cpb'][$key]['display_progress'] . '"';
+			elseif($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 4) { // Show progress (no label)
+				if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {
+					$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . round(100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . '"';
+				} else {
+					$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . $g_cpb_config['cpb'][$key]['cpb_progress_min'] . ' / ' . $g_cpb_config['cpb'][$key]['cpb_progress_max'] . '"';
+				}
 			}
 			if(!$g_cpb_config['cpb'][$key]['cpb_custom_colors']) {
 				$g_cpb_config['cpb'][$key]['cpb_color_text'] = $g_cpb_config['color_text_default'];

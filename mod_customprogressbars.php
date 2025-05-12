@@ -14,7 +14,7 @@ require_once dirname(__FILE__) . '/helper.php';
 
 /* types of config parameters (only these will be used) */
 $param_list_int = [
-	'title_position_default', 'progress_position_default'
+	'title_position_default', 'progress_position_default', 'mouseover_default'
 ];
 $param_list_str = [
 	'g_class', 'custom_css', 'header',
@@ -25,7 +25,8 @@ $progress_form_list_bool = [
 	'cpb_enabled', 'cpb_custom_colors'
 ];
 $progress_form_list_int = [
-	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max'
+	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max',
+	'cpb_mouseover'
 ];
 $progress_form_list_str = [
 	'cpb_title', 'cpb_progress_label', 'cpb_color_text', 'cpb_color_bg',
@@ -53,10 +54,6 @@ foreach($stored_config['cbp_form'] as $cbp_form => $form_data) {
 	foreach($progress_form_list_str as $pfls) { // clean up str params
 		$g_cpb_config['cpb'][$cbp_form][$pfls] = $form_data[$pfls] === NULL ? '' : trim($form_data[$pfls]);
 	}
-	if($g_cpb_config['cpb'][$cbp_form]['cpb_title_position'] == 0)
-		$g_cpb_config['cpb'][$cbp_form]['cpb_title_position'] = $g_cpb_config['title_position_default'];
-	if($g_cpb_config['cpb'][$cbp_form]['cpb_progress_position'] == 0)
-		$g_cpb_config['cpb'][$cbp_form]['cpb_progress_position'] = $g_cpb_config['progress_position_default'];
 	$g_cpb_config['cpb'][$cbp_form]['lang_alt'] = [];
 	foreach($form_data['cpb_lang_sub'] as $lang_form) {
 		$g_cpb_config['cpb'][$cbp_form]['lang_alt'][$lang_form['cpb_lang_sub_lang']] = ['title' => $lang_form['cpb_lang_sub_title'], 'progress_label' => $lang_form['cpb_lang_sub_progress_label']];
