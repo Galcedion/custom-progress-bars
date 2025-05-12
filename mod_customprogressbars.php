@@ -17,8 +17,8 @@ $param_list_int = [
 	'title_position_default', 'progress_position_default'
 ];
 $param_list_str = [
-	'g_class', 'custom_css', 'color_text_default', 'color_bg_default',
-	'color_filled_default', 'color_empty_default'
+	'g_class', 'custom_css', 'header',
+	'color_text_default', 'color_bg_default', 'color_filled_default', 'color_empty_default'
 ];
 $progress_form_list_bool = [
 	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force',
@@ -63,6 +63,10 @@ foreach($stored_config['cbp_form'] as $cbp_form => $form_data) {
 	}
 }
 $g_cpb_config['current_lang'] = Factory::getLanguage()->getTag(); // the language the user is currently using
+foreach($stored_config['header_form'] as $header_lang) {
+	if($g_cpb_config['current_lang'] == $header_lang['header_lang'])
+		$g_cpb_config['header'] = trim($header_lang['header_alt']);
+}
 /* config ready */
 
 $g_cpb_config['cpb'] = ModCustomProgressBars::prepare_progress_bars($g_cpb_config);
