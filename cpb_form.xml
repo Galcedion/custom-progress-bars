@@ -108,6 +108,15 @@
 		buttons="add,remove">
 		<form>
 			<field
+				name="cpb_color_text_inherit"
+				type="radio"
+				default="1"
+				label="Inherit the text color from the Template?"
+				layout="joomla.form.field.radio.switcher">
+				<option value="0">JNo</option>
+				<option value="1">JYes</option>
+			</field>
+			<field
 				name="cpb_color_text"
 				type="color"
 				default="#000"

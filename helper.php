@@ -64,12 +64,12 @@ class ModCustomProgressBars
 				}
 			}
 			if(empty($g_cpb_config['cpb'][$key]['color_overwrite'])) {
-				$g_cpb_config['cpb'][$key]['cpb_color_text'] = $g_cpb_config['color_text_default'];
+				$g_cpb_config['cpb'][$key]['cpb_color_text'] = $g_cpb_config['color_text_inherit_default'] ? '' : $g_cpb_config['color_text_default'];
 				$g_cpb_config['cpb'][$key]['cpb_color_bg'] = $g_cpb_config['color_bg_default'];
 				$g_cpb_config['cpb'][$key]['cpb_color_filled'] = $g_cpb_config['color_filled_default'];
 				$g_cpb_config['cpb'][$key]['cpb_color_empty'] = $g_cpb_config['color_empty_default'];
 			} else {
-				$g_cpb_config['cpb'][$key]['cpb_color_text'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_text'];
+				$g_cpb_config['cpb'][$key]['cpb_color_text'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_text'] == 0 ? '' : $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_text'];
 				$g_cpb_config['cpb'][$key]['cpb_color_bg'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_bg'];
 				$g_cpb_config['cpb'][$key]['cpb_color_filled'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_filled'];
 				$g_cpb_config['cpb'][$key]['cpb_color_empty'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_empty'];

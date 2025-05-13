@@ -13,6 +13,9 @@ use Joomla\CMS\Helper\ModuleHelper;
 require_once dirname(__FILE__) . '/helper.php';
 
 /* types of config parameters (only these will be used) */
+$param_list_bool = [
+	'color_text_inherit_default'
+];
 $param_list_int = [
 	'title_position_default', 'progress_position_default', 'mouseover_default'
 ];
@@ -34,6 +37,9 @@ $progress_form_list_str = [
 /* building main config */
 $stored_config = $params->toArray();
 $g_cpb_config = [];
+foreach($param_list_bool as $pli) { // sanitize bool params
+	$g_cpb_config[$pli] = $stored_config[$pli] == 1 ? TRUE : FALSE;
+}
 foreach($param_list_int as $pli) { // sanitize int params
 	$g_cpb_config[$pli] = intval($stored_config[$pli]);
 }

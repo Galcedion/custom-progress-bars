@@ -8,6 +8,7 @@
  * @license    GNU/GPL: https://gnu.org/licenses/gpl.html
  */
 defined('_JEXEC') or die;
+$cpb_color_text = $cpb['cpb_color_text'] == '' ? '' : ' style="color:' . $cpb['cpb_color_text'] . '"';
 $cpb_progress_class = 'progress my-auto';
 $cpb_title_class = '';
 $cpb_progress_label_class = '';
@@ -26,7 +27,7 @@ if($colcount > 0) {
 }
 $cpb['cpb_class'] = 'class="text-center my-1 ' . $cpb['cpb_class'] . '"'; // TODO: possible whitespace
 ?>
-<div style="color:<?=$cpb['cpb_color_text'];?>" <?=$cpb['cpb_class'];?><?=$cpb['tooltip'];?>>
+<div<?=$cpb_color_text;?> <?=$cpb['cpb_class'];?><?=$cpb['tooltip'];?>>
 	<?php if($cpb['display_title'] && ($cpb['cpb_title_position'] == 2 || $cpb['cpb_title_position'] == 4)): ?>
 	<div<?=$cpb_title_class;?>><?=$cpb['display_title'];?></div>
 	<?php endif; ?>
