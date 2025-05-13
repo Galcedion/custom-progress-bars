@@ -22,15 +22,14 @@ $param_list_str = [
 ];
 $progress_form_list_bool = [
 	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force',
-	'cpb_enabled', 'cpb_custom_colors'
+	'cpb_enabled'
 ];
 $progress_form_list_int = [
 	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max',
 	'cpb_mouseover'
 ];
 $progress_form_list_str = [
-	'cpb_class', 'cpb_title', 'cpb_progress_label',
-	'cpb_color_text', 'cpb_color_bg', 'cpb_color_filled', 'cpb_color_empty'
+	'cpb_class', 'cpb_title', 'cpb_progress_label'
 ];
 /* building main config */
 $stored_config = $params->toArray();
@@ -54,6 +53,7 @@ foreach($stored_config['cbp_form'] as $cbp_form => $form_data) {
 	foreach($progress_form_list_str as $pfls) { // clean up str params
 		$g_cpb_config['cpb'][$cbp_form][$pfls] = $form_data[$pfls] === NULL ? '' : trim($form_data[$pfls]);
 	}
+	$g_cpb_config['cpb'][$cbp_form]['color_overwrite'] = $form_data['cpb_custom_colors'];
 	$g_cpb_config['cpb'][$cbp_form]['lang_alt'] = [];
 	foreach($form_data['cpb_lang_sub'] as $lang_form) {
 		$g_cpb_config['cpb'][$cbp_form]['lang_alt'][$lang_form['cpb_lang_sub_lang']] = ['title' => $lang_form['cpb_lang_sub_title'], 'progress_label' => $lang_form['cpb_lang_sub_progress_label']];

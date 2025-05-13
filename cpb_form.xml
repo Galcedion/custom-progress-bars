@@ -99,38 +99,40 @@
 	</field>
 	<field
 		name="cpb_custom_colors"
-		type="radio"
-		default="0"
-		label="Use custom colors?"
-		layout="joomla.form.field.radio.switcher"
-		description="If enabled, individual colors can be set for each progress bar. Otherwise the default is used.">
-		<option value="0">JNo</option>
-		<option value="1">JYes</option>
+		type="subform"
+		label="Overwrite default colors"
+		description="If enabled, individual colors can be set for each progress bar. Otherwise the default is used."
+		multiple="true"
+		min="0"
+		max="1"
+		buttons="add,remove">
+		<form>
+			<field
+				name="cpb_color_text"
+				type="color"
+				default="#000"
+				format="rgb"
+				label="Text color"/>
+			<field
+				name="cpb_color_bg"
+				type="color"
+				default="#FFF0"
+				format="rgba"
+				label="Progress bar background color"/>
+			<field
+				name="cpb_color_filled"
+				type="color"
+				default="#0F0"
+				format="rgba"
+				label="Progress bar filled color"/>
+			<field
+				name="cpb_color_empty"
+				type="color"
+				default="#F00"
+				format="rgba"
+				label="Progress bar empty color"/>
+		</form>
 	</field>
-	<field
-		name="cpb_color_text"
-		type="color"
-		default="#000"
-		format="rgb"
-		label="Default text color"/>
-	<field
-		name="cpb_color_bg"
-		type="color"
-		default="#FFF0"
-		format="rgba"
-		label="Default progress bar background color"/>
-	<field
-		name="cpb_color_filled"
-		type="color"
-		default="#0F0"
-		format="rgba"
-		label="Default progress bar filled color"/>
-	<field
-		name="cpb_color_empty"
-		type="color"
-		default="#F00"
-		format="rgba"
-		label="Default progress bar empty color"/>
 	<field
 		name="cpb_lang_force"
 		type="radio"
