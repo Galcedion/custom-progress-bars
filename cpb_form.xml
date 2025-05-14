@@ -119,25 +119,31 @@
 			<field
 				name="cpb_color_text"
 				type="color"
-				default="#000"
+				default="#000000"
 				format="rgb"
 				label="Text color"/>
 			<field
 				name="cpb_color_bg"
 				type="color"
-				default="#FFF0"
+				default="#FFFFFF00"
 				format="rgba"
 				label="Progress bar background color"/>
 			<field
+				name="cpb_color_border"
+				type="color"
+				default="#777777"
+				format="rgba"
+				label="Progress bar border color"/>
+			<field
 				name="cpb_color_filled"
 				type="color"
-				default="#0F0"
+				default="#66CC66"
 				format="rgba"
 				label="Progress bar filled color"/>
 			<field
 				name="cpb_color_empty"
 				type="color"
-				default="#F00"
+				default="#FF4D4D"
 				format="rgba"
 				label="Progress bar empty color"/>
 		</form>

@@ -21,7 +21,7 @@ $param_list_int = [
 ];
 $param_list_str = [
 	'g_class', 'custom_css', 'header',
-	'color_text_default', 'color_bg_default', 'color_filled_default', 'color_empty_default'
+	'color_text_default', 'color_bg_default', 'color_border_default', 'color_filled_default', 'color_empty_default'
 ];
 $progress_form_list_bool = [
 	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force',

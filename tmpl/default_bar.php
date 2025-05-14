@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 $cpb_color_text = $cpb['cpb_color_text'] == '' ? '' : ' style="color:' . $cpb['cpb_color_text'] . '"';
 $cpb_progress_class = 'progress my-auto';
+$cpb_progress_style = 'background-color:' . $cpb['cpb_color_bg'] . ';border: 1px solid ' . $cpb['cpb_color_border'] . ';';
 $cpb_title_class = '';
 $cpb_progress_label_class = '';
 $colcount = 0;
@@ -34,7 +35,7 @@ $cpb['cpb_class'] = 'class="text-center my-1 ' . $cpb['cpb_class'] . '"'; // TOD
 	<?php if($cpb['display_progress'] && ($cpb['cpb_progress_position'] == 2 || $cpb['cpb_progress_position'] == 4)): ?>
 	<div<?=$cpb_progress_label_class;?>><?=$cpb['display_progress'];?></div>
 	<?php endif; ?>
-	<div class="<?=$cpb_progress_class;?>" style="background-color:<?=$cpb['cpb_color_bg'];?>">
+	<div class="<?=$cpb_progress_class;?>" style="<?=$cpb_progress_style;?>">
 		<div style="<?=$cpb['progress_with'];?>;background-color:<?=$cpb['cpb_color_empty'];?>">
 		<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 1): ?>
 		<div class="text-center"><?=$cpb['display_title'];?></div>
