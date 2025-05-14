@@ -9,6 +9,11 @@
  */
 defined('_JEXEC') or die;
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Factory;
+if(!empty($g_cpb_config['custom_css'])) { // load custom CSS if set
+	$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+	$wa->addInlineStyle($g_cpb_config['custom_css']);
+}
 ?>
 <div class="<?=$g_cpb_config['g_class'];?>">
 	<?=$g_cpb_config['header'];?>
