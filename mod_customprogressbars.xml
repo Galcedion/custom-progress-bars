@@ -122,6 +122,17 @@
 					format="rgba"
 					label="Default progress bar empty color"/>
 				<field
+					name="gradient_default"
+					type="list"
+					default="1"
+					label="Default progress gradient"
+					description="Default setting of the gradient coloring">
+					<option value="1">Only Filled color</option>
+					<option value="2">Only Empty color</option>
+					<option value="3">Mixed color (by progress)</option>
+					<option value="4">Linear Gradient (current progress)</option>
+				</field>
+				<field
 					name="custom_css"
 					type="textarea"
 					label="Custom CSS"

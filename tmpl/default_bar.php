@@ -11,6 +11,15 @@ defined('_JEXEC') or die;
 $cpb_color_text = $cpb['cpb_color_text'] == '' ? '' : ' style="color:' . $cpb['cpb_color_text'] . '"';
 $cpb_progress_class = 'progress my-auto';
 $cpb_progress_style = 'background-color:' . $cpb['cpb_color_bg'] . ';border: 1px solid ' . $cpb['cpb_color_border'] . ';';
+$cpb_bar_style = $cpb['progress_width'];
+if($cpb['cpb_gradient'] == 1)
+	$cpb_bar_style .= 'background-color:' . $cpb['cpb_color_filled'] . ';';
+elseif($cpb['cpb_gradient'] == 2)
+	$cpb_bar_style .= 'background-color:' . $cpb['cpb_color_empty'] . ';';
+elseif($cpb['cpb_gradient'] == 3)
+	$cpb_bar_style .= 'background-color:color-mix(in hsl,' . $cpb['cpb_color_filled'] . ' ' . $cpb['cpb_progress_min'] . '%,' . $cpb['cpb_color_empty'] . ' ' . ($cpb['cpb_progress_max'] - $cpb['cpb_progress_min']) . '%);';
+elseif($cpb['cpb_gradient'] == 4)
+	$cpb_bar_style .= 'background-image:linear-gradient(90deg,' . $cpb['cpb_color_empty'] . ',' . $cpb['cpb_color_filled'] . ');';
 $cpb_title_class = '';
 $cpb_progress_label_class = '';
 $colcount = 0;
@@ -36,7 +45,7 @@ $cpb['cpb_class'] = 'class="text-center my-1 ' . $cpb['cpb_class'] . '"'; // TOD
 	<div<?=$cpb_progress_label_class;?>><?=$cpb['display_progress'];?></div>
 	<?php endif; ?>
 	<div class="<?=$cpb_progress_class;?>" style="<?=$cpb_progress_style;?>">
-		<div style="<?=$cpb['progress_with'];?>;background-color:<?=$cpb['cpb_color_empty'];?>">
+		<div style="<?=$cpb_bar_style;?>">
 		<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 1): ?>
 		<div class="text-center"><?=$cpb['display_title'];?></div>
 		<?php endif; ?>

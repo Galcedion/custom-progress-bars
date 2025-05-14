@@ -39,6 +39,8 @@ class ModCustomProgressBars
 				$g_cpb_config['cpb'][$key]['cpb_progress_position'] = $g_cpb_config['progress_position_default'];
 			if($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 0)
 				$g_cpb_config['cpb'][$key]['cpb_mouseover'] = $g_cpb_config['mouseover_default'];
+			if($g_cpb_config['cpb'][$key]['cpb_gradient'] == 0)
+				$g_cpb_config['cpb'][$key]['cpb_gradient'] = $g_cpb_config['gradient_default'];
 			$g_cpb_config['cpb'][$key]['display_title'] = $g_cpb_config['cpb'][$key]['cpb_title_show'] ? $g_cpb_config['cpb'][$key]['cpb_title'] : FALSE;
 			if($g_cpb_config['cpb'][$key]['cpb_progress_show']) {
 				if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {
@@ -76,7 +78,7 @@ class ModCustomProgressBars
 				$g_cpb_config['cpb'][$key]['cpb_color_filled'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_filled'];
 				$g_cpb_config['cpb'][$key]['cpb_color_empty'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_empty'];
 			}
-			$g_cpb_config['cpb'][$key]['progress_with'] = 'width:' . (100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . '%';
+			$g_cpb_config['cpb'][$key]['progress_width'] = 'width:' . (100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . '%;';
 		}
 		return $g_cpb_config['cpb'];
 	}

@@ -149,6 +149,17 @@
 		</form>
 	</field>
 	<field
+		name="cpb_gradient"
+		type="list"
+		default="0"
+		label="Progress gradient">
+		<option value="0">Default</option>
+		<option value="1">Only Filled color</option>
+		<option value="2">Only Empty color</option>
+		<option value="3">Mixed color (by progress)</option>
+		<option value="4">Linear Gradient (current progress)</option>
+	</field>
+	<field
 		name="cpb_lang_force"
 		type="radio"
 		default="0"
