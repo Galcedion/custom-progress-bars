@@ -12,14 +12,24 @@ $cpb_color_text = $cpb['cpb_color_text'] == '' ? '' : ' style="color:' . $cpb['c
 $cpb_progress_class = 'progress my-auto';
 $cpb_progress_style = 'background-color:' . $cpb['cpb_color_bg'] . ';border: 1px solid ' . $cpb['cpb_color_border'] . ';';
 $cpb_bar_style = $cpb['progress_width'];
-if($cpb['cpb_gradient'] == 1)
+if($cpb['cpb_gradient'] == 1) { // creating gradient
 	$cpb_bar_style .= 'background-color:' . $cpb['cpb_color_filled'] . ';';
-elseif($cpb['cpb_gradient'] == 2)
+} elseif($cpb['cpb_gradient'] == 2) {
 	$cpb_bar_style .= 'background-color:' . $cpb['cpb_color_empty'] . ';';
-elseif($cpb['cpb_gradient'] == 3)
-	$cpb_bar_style .= 'background-color:color-mix(in hsl,' . $cpb['cpb_color_filled'] . ' ' . $cpb['cpb_progress_min'] . '%,' . $cpb['cpb_color_empty'] . ' ' . ($cpb['cpb_progress_max'] - $cpb['cpb_progress_min']) . '%);';
-elseif($cpb['cpb_gradient'] == 4)
+} elseif($cpb['cpb_gradient'] == 3) {
+	$cpb_bar_style .= 'background-color:color-mix(in hsl,';
+	if($cpb['cpb_progress_min'] > $cpb['cpb_progress_max'])
+		$cpb['cpb_progress_min'] = $cpb['cpb_progress_max'];
+	if($cpb['cpb_progress_min'] > 100 || $cpb['cpb_progress_max'] > 100) {
+		$min_len = strlen(strval($cpb['cpb_progress_min'])) - 2;
+		$max_len = strlen(strval($cpb['cpb_progress_max'])) - 2;
+		$cpb['cpb_progress_min'] = $cpb['cpb_progress_min'] / (pow(10, max($min_len, $max_len)));
+		$cpb['cpb_progress_max'] = $cpb['cpb_progress_max'] / (pow(10, max($min_len, $max_len)));
+	}
+	$cpb_bar_style .= $cpb['cpb_color_filled'] . ' ' . $cpb['cpb_progress_min'] . '%,' . $cpb['cpb_color_empty'] . ' ' . ($cpb['cpb_progress_max'] - $cpb['cpb_progress_min']) . '%);';
+} elseif($cpb['cpb_gradient'] == 4) {
 	$cpb_bar_style .= 'background-image:linear-gradient(90deg,' . $cpb['cpb_color_empty'] . ',' . $cpb['cpb_color_filled'] . ');';
+}
 $cpb_title_class = '';
 $cpb_progress_label_class = '';
 $colcount = 0;

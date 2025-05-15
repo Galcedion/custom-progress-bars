@@ -78,7 +78,10 @@ class ModCustomProgressBars
 				$g_cpb_config['cpb'][$key]['cpb_color_filled'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_filled'];
 				$g_cpb_config['cpb'][$key]['cpb_color_empty'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_empty'];
 			}
-			$g_cpb_config['cpb'][$key]['progress_width'] = 'width:' . (100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . '%;';
+			if($g_cpb_config['cpb'][$key]['cpb_progress_min'] >= $g_cpb_config['cpb'][$key]['cpb_progress_max'])
+				$g_cpb_config['cpb'][$key]['progress_width'] = 'width:100%;';
+			else
+				$g_cpb_config['cpb'][$key]['progress_width'] = 'width:' . (100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . '%;';
 		}
 		return $g_cpb_config['cpb'];
 	}
