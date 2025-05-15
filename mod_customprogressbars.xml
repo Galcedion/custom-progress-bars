@@ -142,6 +142,18 @@
 					<option value="3">Mixed color (by progress)</option>
 					<option value="4">Linear Gradient (current progress)</option>
 				</field>
+				<field
+					name="style_default"
+					type="list"
+					default="1"
+					label="Progress bar style"
+					description="Default setting of the progress bar style">
+					<option value="1">Rounded</option>
+					<option value="2">Edges</option>
+					<option value="3">Circle</option>
+					<option value="4">Tilt left</option>
+					<option value="5">Tilt right</option>
+				</field>
 			</fieldset>
 			<fieldset name="cpb" label="Progress Bars">
 				<field

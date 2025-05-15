@@ -41,6 +41,8 @@ class ModCustomProgressBars
 				$g_cpb_config['cpb'][$key]['cpb_mouseover'] = $g_cpb_config['mouseover_default'];
 			if($g_cpb_config['cpb'][$key]['cpb_gradient'] == 0)
 				$g_cpb_config['cpb'][$key]['cpb_gradient'] = $g_cpb_config['gradient_default'];
+			if($g_cpb_config['cpb'][$key]['cpb_style'] == 0)
+				$g_cpb_config['cpb'][$key]['cpb_style'] = $g_cpb_config['style_default'];
 			$g_cpb_config['cpb'][$key]['display_title'] = $g_cpb_config['cpb'][$key]['cpb_title_show'] ? $g_cpb_config['cpb'][$key]['cpb_title'] : FALSE;
 			if($g_cpb_config['cpb'][$key]['cpb_progress_show']) {
 				if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {

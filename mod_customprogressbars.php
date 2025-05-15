@@ -18,7 +18,7 @@ $param_list_bool = [
 ];
 $param_list_int = [
 	'title_position_default', 'progress_position_default', 'mouseover_default',
-	'gradient_default'
+	'gradient_default', 'style_default'
 ];
 $param_list_str = [
 	'g_class', 'custom_css', 'header',
@@ -30,7 +30,7 @@ $progress_form_list_bool = [
 ];
 $progress_form_list_int = [
 	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max',
-	'cpb_mouseover', 'cpb_gradient'
+	'cpb_mouseover', 'cpb_gradient', 'cpb_style'
 ];
 $progress_form_list_str = [
 	'cpb_class', 'cpb_title', 'cpb_progress_label'

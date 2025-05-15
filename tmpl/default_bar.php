@@ -12,6 +12,17 @@ $cpb_color_text = $cpb['cpb_color_text'] == '' ? '' : ' style="color:' . $cpb['c
 $cpb_progress_class = 'progress my-auto';
 $cpb_progress_style = 'background-color:' . $cpb['cpb_color_bg'] . ';border: 1px solid ' . $cpb['cpb_color_border'] . ';';
 $cpb_bar_style = $cpb['progress_width'];
+if($cpb['cpb_style'] == 2) {
+	$cpb_progress_class .= ' rounded-0';
+} elseif($cpb['cpb_style'] == 3) {
+	$cpb_progress_class .= ' rounded-circle';
+} elseif($cpb['cpb_style'] == 4) {
+	$cpb_progress_style .= 'transform:skewX(30deg);';
+	$cpb_innertext_style = ' style="transform:skewX(-30deg);"';
+} elseif($cpb['cpb_style'] == 5) {
+	$cpb_progress_style .= 'transform:skewX(-30deg);';
+	$cpb_innertext_style = ' style="transform:skewX(30deg);"';
+}
 if($cpb['cpb_gradient'] == 1) { // creating gradient
 	$cpb_bar_style .= 'background-color:' . $cpb['cpb_color_filled'] . ';';
 } elseif($cpb['cpb_gradient'] == 2) {
@@ -57,10 +68,10 @@ $cpb['cpb_class'] = 'class="text-center my-1 ' . $cpb['cpb_class'] . '"'; // TOD
 	<div class="<?=$cpb_progress_class;?>" style="<?=$cpb_progress_style;?>">
 		<div style="<?=$cpb_bar_style;?>">
 		<?php if($cpb['display_title'] && $cpb['cpb_title_position'] == 1): ?>
-		<div class="text-center"><?=$cpb['display_title'];?></div>
+		<div class="text-center"<?=isset($cpb_innertext_style) ? $cpb_innertext_style:'';?>><?=$cpb['display_title'];?></div>
 		<?php endif; ?>
 		<?php if($cpb['display_progress'] && $cpb['cpb_progress_position'] == 1): ?>
-		<div class="text-center"><?=$cpb['display_progress'];?></div>
+		<div class="text-center"<?=isset($cpb_innertext_style) ? $cpb_innertext_style:'';?>><?=$cpb['display_progress'];?></div>
 		<?php endif; ?>
 		</div>
 	</div>
