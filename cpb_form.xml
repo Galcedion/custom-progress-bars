@@ -1,10 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<field
+		name="cpb_enabled"
+		type="radio"
+		default="1"
+		label="Show this progress bar?"
+		layout="joomla.form.field.radio.switcher">
+		<option value="0">JNo</option>
+		<option value="1">JYes</option>
+	</field>
+	<field
 		name="cpb_class"
 		type="text"
 		label="Progress bar class"
 		description="Extra individual class for the progress bar"/>
+	<field
+		name="cpb_lang_force"
+		type="radio"
+		default="0"
+		label="Force alternative languages?"
+		layout="joomla.form.field.radio.switcher"
+		description="When enabled, only languages specified in alternative languages will see this progress bar.">
+		<option value="0">JNo</option>
+		<option value="1">JYes</option>
+	</field>
+	<field
+		name="cpb_lang_sub"
+		type="subform"
+		label="Alternative languages"
+		multiple="true">
+		<form>
+			<field
+				name="cpb_lang_sub_lang"
+				type="contentlanguage"
+				label="Title language"
+				description="The alternatives will be applied to all users that use the selected language."/>
+			<field
+				name="cpb_lang_sub_title"
+				type="text"
+				label="Title"/>
+			<field
+				name="cpb_lang_sub_progress_label"
+				type="text"
+				label="Progress unit"/>
+		</form>
+	</field>
+	<field
+		name="cpb_s_main_title"
+		type="spacer"
+		label="&lt;hr/&gt;Title settings"/>
 	<field
 		name="cpb_title_show"
 		type="radio"
@@ -34,8 +78,7 @@
 	<field
 		name="cpb_s_title_progress"
 		type="spacer"
-		label=""
-		hr="true"/>
+		label="&lt;hr/&gt;Progress settings"/>
 	<field
 		name="cpb_progress_show"
 		type="radio"
@@ -86,6 +129,10 @@
 		default=""
 		description="Alternative label for the progress. Can be empty. Will not be applied, when progress is displayed as percentage."/>
 	<field
+		name="cpb_s_progress_overwrite"
+		type="spacer"
+		label="&lt;hr/&gt;Overwrite defaults"/>
+	<field
 		name="cpb_mouseover"
 		type="list"
 		default="0"
@@ -100,7 +147,7 @@
 	<field
 		name="cpb_custom_colors"
 		type="subform"
-		label="Overwrite default colors"
+		label="Custom colors"
 		description="If enabled, individual colors can be set for each progress bar. Otherwise the default is used."
 		multiple="true"
 		min="0"
@@ -158,45 +205,5 @@
 		<option value="2">Only Empty color</option>
 		<option value="3">Mixed color (by progress)</option>
 		<option value="4">Linear Gradient (current progress)</option>
-	</field>
-	<field
-		name="cpb_lang_force"
-		type="radio"
-		default="0"
-		label="Force alternative languages?"
-		layout="joomla.form.field.radio.switcher"
-		description="When enabled, only languages specified in alternative languages will see this progress bar.">
-		<option value="0">JNo</option>
-		<option value="1">JYes</option>
-	</field>
-	<field
-		name="cpb_lang_sub"
-		type="subform"
-		label="Alternative languages"
-		multiple="true">
-		<form>
-			<field
-				name="cpb_lang_sub_lang"
-				type="contentlanguage"
-				label="Title language"
-				description="The alternatives will be applied to all users that use the selected language."/>
-			<field
-				name="cpb_lang_sub_title"
-				type="text"
-				label="Title"/>
-			<field
-				name="cpb_lang_sub_progress_label"
-				type="text"
-				label="Progress unit"/>
-		</form>
-	</field>
-	<field
-		name="cpb_enabled"
-		type="radio"
-		default="1"
-		label="Show this progress bar?"
-		layout="joomla.form.field.radio.switcher">
-		<option value="0">JNo</option>
-		<option value="1">JYes</option>
 	</field>
 </form>

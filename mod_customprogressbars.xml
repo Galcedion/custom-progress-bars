@@ -48,10 +48,20 @@
 					</form>
 				</field>
 				<field
+					name="custom_css"
+					type="textarea"
+					label="Custom CSS"
+					rows="10"
+					description=""/>
+				<field
+					name="s_lang_default_text"
+					type="spacer"
+					label="&lt;hr/&gt;Default values"/>
+				<field
 					name="title_position_default"
 					type="list"
 					default="1"
-					label="Default title position"
+					label="Title position"
 					description="Default for positioning the progress bar title in relation to the actual progress bar">
 					<option value="1">Inside</option>
 					<option value="2">Above</option>
@@ -63,7 +73,7 @@
 					name="progress_position_default"
 					type="list"
 					default="1"
-					label="Default progress (text) position"
+					label="Progress (text) position"
 					description="Default for positioning the progress bar progress in relation to the actual progress bar">
 					<option value="1">Inside</option>
 					<option value="2">Above</option>
@@ -75,7 +85,7 @@
 					name="mouseover_default"
 					type="list"
 					default="1"
-					label="Default mouseover effect (tooltip)"
+					label="Mouseover effect (tooltip)"
 					description="Default for the tooltip, when hovering over the progress bar">
 					<option value="1">None</option>
 					<option value="2">Show title</option>
@@ -86,7 +96,7 @@
 					name="color_text_inherit_default"
 					type="radio"
 					default="1"
-					label="Default inherit the text color from the Template?"
+					label="Inherit the text color from the Template?"
 					layout="joomla.form.field.radio.switcher">
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
@@ -96,48 +106,42 @@
 					type="color"
 					default="#000000"
 					format="rgb"
-					label="Default text color"/>
+					label="Text color"/>
 				<field
 					name="color_bg_default"
 					type="color"
 					default="#FFFFFF00"
 					format="rgba"
-					label="Default progress bar background color"/>
+					label="Progress bar background color"/>
 				<field
 					name="color_border_default"
 					type="color"
 					default="#777777"
 					format="rgba"
-					label="Default progress bar border color"/>
+					label="Progress bar border color"/>
 				<field
 					name="color_filled_default"
 					type="color"
 					default="#66CC66"
 					format="rgba"
-					label="Default progress bar filled color"/>
+					label="Progress bar filled color"/>
 				<field
 					name="color_empty_default"
 					type="color"
 					default="#FF4D4D"
 					format="rgba"
-					label="Default progress bar empty color"/>
+					label="Progress bar empty color"/>
 				<field
 					name="gradient_default"
 					type="list"
 					default="1"
-					label="Default progress gradient"
+					label="Progress gradient"
 					description="Default setting of the gradient coloring">
 					<option value="1">Only Filled color</option>
 					<option value="2">Only Empty color</option>
 					<option value="3">Mixed color (by progress)</option>
 					<option value="4">Linear Gradient (current progress)</option>
 				</field>
-				<field
-					name="custom_css"
-					type="textarea"
-					label="Custom CSS"
-					rows="10"
-					description=""/>
 			</fieldset>
 			<fieldset name="cpb" label="Progress Bars">
 				<field
