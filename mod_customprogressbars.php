@@ -18,7 +18,7 @@ $param_list_bool = [
 ];
 $param_list_int = [
 	'title_position_default', 'progress_position_default', 'mouseover_default',
-	'gradient_default', 'style_default'
+	'gradient_default', 'style_default', 'width', 'horizontal_position'
 ];
 $param_list_str = [
 	'g_class', 'custom_css', 'header',

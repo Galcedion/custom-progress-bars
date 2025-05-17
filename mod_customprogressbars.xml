@@ -31,6 +31,26 @@
 					required="1"
 					description="MOD_CPB_G_CLASS_DESC"/>
 				<field
+					name="width"
+					type="number"
+					label="MOD_CPB_WIDTH_LABEL"
+					default="100"
+					min="1"
+					max="100"
+					step="1"
+					description="MOD_CPB_WIDTH_DESC"/>
+				<field
+					name="horizontal_position"
+					type="list"
+					default="1"
+					label="MOD_CPB_HORIZONTAL_POSITION_LABEL"
+					description="MOD_CPB_HORIZONTAL_POSITION_DESC">
+					<option value="1">MOD_CPB_HPOS_UNSET</option>
+					<option value="2">MOD_CPB_HPOS_CENTER</option>
+					<option value="3">MOD_CPB_HPOS_LEFT</option>
+					<option value="4">MOD_CPB_HPOS_RIGHT</option>
+				</field>
+				<field
 					name="header"
 					type="editor"
 					label="MOD_CPB_HEADER_LABEL"
