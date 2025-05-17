@@ -6,97 +6,104 @@
 	<creationDate>2025</creationDate>
 	<version>1.0.0</version>
 	<license>GPL-3.0</license>
-	<description>TODO</description>
+	<description>MOD_CPB_DESC</description>
 	<files>
         <filename module="mod_customprogressbars">mod_customprogressbars.php</filename>
         <filename>cpb_form.xml</filename>
         <filename>helper.php</filename>
         <folder>tmpl</folder>
+        <folder>language</folder>
     </files>
+    <languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_customprogressbars.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_customprogressbars.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.mod_customprogressbars.ini</language>
+		<language tag="de-DE">de-DE/de-DE.mod_customprogressbars.sys.ini</language>
+	</languages>
     <config>
 		<fields name="params">
 			<fieldset name="basic">
 				<field
 					name="g_class"
 					type="text"
-					label="Main class"
+					label="MOD_CPB_G_CLASS_LABEL"
 					default="g-mod-cpb"
 					required="1"
-					description="TODO"/>
+					description="MOD_CPB_G_CLASS_DESC"/>
 				<field
 					name="header"
 					type="editor"
-					label="Header / Into text"
-					description="Text to be displayed before the progress bars. Does not appear if empty."
+					label="MOD_CPB_HEADER_LABEL"
+					description="MOD_CPB_HEADER_DESC"
 					filter="safehtml"/>
 				<field
 					name="header_form"
 					type="subform"
-					label="Header translations"
+					label="MOD_CPB_HEADER_FORM_LABEL"
 					multiple="true">
 					<form>
 						<field
 							name="header_lang"
 							type="contentlanguage"
-							label="Alternative Header language"
-							description="The alternatives will be applied to all users that use the selected language."/>
+							label="MOD_CPB_HEADER_FORM_LANG_LABEL"
+							description="MOD_CPB_HEADER_FORM_LANG_DESC"/>
 						<field
 							name="header_alt"
 							type="editor"
-							label="Alternative Header"
+							label="MOD_CPB_HEADER_FORM_ALT_LABEL"
 							filter="safehtml"/>
 					</form>
 				</field>
 				<field
 					name="custom_css"
 					type="textarea"
-					label="Custom CSS"
+					label="MOD_CPB_CUSTOM_CSS_LABEL"
 					rows="10"
-					description=""/>
+					description="MOD_CPB_CUSTOM_CSS_DESC"/>
 				<field
 					name="s_lang_default_text"
 					type="spacer"
-					label="&lt;hr/&gt;Default values"/>
+					label="MOD_CPB_S_LANG_DEFAULT"/>
 				<field
 					name="title_position_default"
 					type="list"
 					default="1"
-					label="Title position"
-					description="Default for positioning the progress bar title in relation to the actual progress bar">
-					<option value="1">Inside</option>
-					<option value="2">Above</option>
-					<option value="3">Below</option>
-					<option value="4">Left</option>
-					<option value="5">Right</option>
+					label="MOD_CPB_TITLE_POSITION_LABEL"
+					description="MOD_CPB_TITLE_POSITION_DESC">
+					<option value="1">MOD_CPB_POSITION_INSIDE</option>
+					<option value="2">MOD_CPB_POSITION_ABOVE</option>
+					<option value="3">MOD_CPB_POSITION_BELOW</option>
+					<option value="4">MOD_CPB_POSITION_LEFT</option>
+					<option value="5">MOD_CPB_POSITION_RIGHT</option>
 				</field>
 				<field
 					name="progress_position_default"
 					type="list"
 					default="1"
-					label="Progress (text) position"
-					description="Default for positioning the progress bar progress in relation to the actual progress bar">
-					<option value="1">Inside</option>
-					<option value="2">Above</option>
-					<option value="3">Below</option>
-					<option value="4">Left</option>
-					<option value="5">Right</option>
+					label="MOD_CPB_PROGRESS_POSITION_LABEL"
+					description="MOD_CPB_PROGRESS_POSITION_DESC">
+					<option value="1">MOD_CPB_POSITION_INSIDE</option>
+					<option value="2">MOD_CPB_POSITION_ABOVE</option>
+					<option value="3">MOD_CPB_POSITION_BELOW</option>
+					<option value="4">MOD_CPB_POSITION_LEFT</option>
+					<option value="5">MOD_CPB_POSITION_RIGHT</option>
 				</field>
 				<field
 					name="mouseover_default"
 					type="list"
 					default="1"
-					label="Mouseover effect (tooltip)"
-					description="Default for the tooltip, when hovering over the progress bar">
-					<option value="1">None</option>
-					<option value="2">Show title</option>
-					<option value="3">Show progress</option>
-					<option value="4">Show progress (no label)</option>
+					label="MOD_CPB_MOUSEOVER_LABEL"
+					description="">
+					<option value="1">MOD_CPB_MOUSEOVER_NONE</option>
+					<option value="2">MOD_CPB_MOUSEOVER_TITLE</option>
+					<option value="3">MOD_CPB_MOUSEOVER_PROGRESS</option>
+					<option value="4">MOD_CPB_MOUSEOVER_PROGRESS_NOL</option>
 				</field>
 				<field
 					name="color_text_inherit_default"
 					type="radio"
 					default="1"
-					label="Inherit the text color from the Template?"
+					label="MOD_CPB_COLOR_INHERIT_LABEL"
 					layout="joomla.form.field.radio.switcher">
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
@@ -106,61 +113,61 @@
 					type="color"
 					default="#000000"
 					format="rgb"
-					label="Text color"/>
+					label="MOD_CPB_COLOR_TEXT_LABEL"/>
 				<field
 					name="color_bg_default"
 					type="color"
 					default="#FFFFFF00"
 					format="rgba"
-					label="Progress bar background color"/>
+					label="MOD_CPB_COLOR_BG_LABEL"/>
 				<field
 					name="color_border_default"
 					type="color"
 					default="#777777"
 					format="rgba"
-					label="Progress bar border color"/>
+					label="MOD_CPB_COLOR_BORDER_LABEL"/>
 				<field
 					name="color_filled_default"
 					type="color"
 					default="#66CC66"
 					format="rgba"
-					label="Progress bar filled color"/>
+					label="MOD_CPB_COLOR_FILLED_LABEL"/>
 				<field
 					name="color_empty_default"
 					type="color"
 					default="#FF4D4D"
 					format="rgba"
-					label="Progress bar empty color"/>
+					label="MOD_CPB_COLOR_EMPTY_LABEL"/>
 				<field
 					name="gradient_default"
 					type="list"
 					default="1"
-					label="Progress gradient"
-					description="Default setting of the gradient coloring">
-					<option value="1">Only Filled color</option>
-					<option value="2">Only Empty color</option>
-					<option value="3">Mixed color (by progress)</option>
-					<option value="4">Linear Gradient (current progress)</option>
+					label="MOD_CPB_GRADIENT_LABEL"
+					description="">
+					<option value="1">MOD_CPB_GRADIENT_FILLED</option>
+					<option value="2">MOD_CPB_GRADIENT_EMPTY</option>
+					<option value="3">MOD_CPB_GRADIENT_MIX</option>
+					<option value="4">MOD_CPB_GRADIENT_LINEAR</option>
 				</field>
 				<field
 					name="style_default"
 					type="list"
 					default="1"
-					label="Progress bar style"
-					description="Default setting of the progress bar style">
-					<option value="1">Rounded</option>
-					<option value="2">Edges</option>
-					<option value="3">Circle</option>
-					<option value="4">Tilt left</option>
-					<option value="5">Tilt right</option>
+					label="MOD_CPB_STYLE_LABEL"
+					description="MOD_CPB_STYLE_DESC">
+					<option value="1">MOD_CPB_STYLE_ROUNDED</option>
+					<option value="2">MOD_CPB_STYLE_EDGES</option>
+					<option value="3">MOD_CPB_STYLE_CIRCLE</option>
+					<option value="4">MOD_CPB_STYLE_TL</option>
+					<option value="5">MOD_CPB_STYLE_TR</option>
 				</field>
 			</fieldset>
-			<fieldset name="cpb" label="Progress Bars">
+			<fieldset name="cpb" label="MOD_CPB_LABEL">
 				<field
 					name="cbp_form"
 					type="subform"
 					formsource="modules/mod_customprogressbars/cpb_form.xml"
-					label="Progress Bar"
+					label="MOD_CPB_FORM_LABEL"
 					multiple="true">
 				</field>
 			</fieldset>

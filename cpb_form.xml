@@ -4,7 +4,7 @@
 		name="cpb_enabled"
 		type="radio"
 		default="1"
-		label="Show this progress bar?"
+		label="MOD_CPB_ENABLED_LABEL"
 		layout="joomla.form.field.radio.switcher">
 		<option value="0">JNo</option>
 		<option value="1">JYes</option>
@@ -12,48 +12,48 @@
 	<field
 		name="cpb_class"
 		type="text"
-		label="Progress bar class"
-		description="Extra individual class for the progress bar"/>
+		label="MOD_CPB_BAR_CLASS_LABEL"
+		description="MOD_CPB_BAR_CLASS_DESC"/>
 	<field
 		name="cpb_lang_force"
 		type="radio"
 		default="0"
-		label="Force alternative languages?"
+		label="MOD_CPB_LANG_FORCE_LABEL"
 		layout="joomla.form.field.radio.switcher"
-		description="When enabled, only languages specified in alternative languages will see this progress bar.">
+		description="MOD_CPB_LANG_FORCE_DESC">
 		<option value="0">JNo</option>
 		<option value="1">JYes</option>
 	</field>
 	<field
 		name="cpb_lang_sub"
 		type="subform"
-		label="Alternative languages"
+		label="MOD_CPB_LANG_FORM_LABEL"
 		multiple="true">
 		<form>
 			<field
 				name="cpb_lang_sub_lang"
 				type="contentlanguage"
-				label="Title language"
-				description="The alternatives will be applied to all users that use the selected language."/>
+				label="MOD_CPB_LANG_FORM_LANG_LABEL"
+				description="MOD_CPB_LANG_FORM_LANG_DESC"/>
 			<field
 				name="cpb_lang_sub_title"
 				type="text"
-				label="Title"/>
+				label="MOD_CPB_TITLE_LABEL"/>
 			<field
 				name="cpb_lang_sub_progress_label"
 				type="text"
-				label="Progress unit"/>
+				label="MOD_CPB_PROGRESS_UNIT_LABEL"/>
 		</form>
 	</field>
 	<field
 		name="cpb_s_main_title"
 		type="spacer"
-		label="&lt;hr/&gt;Title settings"/>
+		label="MOD_CPB_S_MAIN_TITLE_LABEL"/>
 	<field
 		name="cpb_title_show"
 		type="radio"
 		default="1"
-		label="Display title"
+		label="MOD_CPB_TITLE_SHOW_LABEL"
 		layout="joomla.form.field.radio.switcher">
 		<option value="0">JNo</option>
 		<option value="1">JYes</option>
@@ -61,29 +61,29 @@
 	<field
 		name="cpb_title"
 		type="text"
-		label="Title"/>
+		label="MOD_CPB_TITLE_LABEL"/>
 	<field
 		name="cpb_title_position"
 		type="list"
 		default="0"
-		label="Title position"
-		description="Position of the title in relation to the progress bar">
-		<option value="0">Default</option>
-		<option value="1">Inside</option>
-		<option value="2">Above</option>
-		<option value="3">Below</option>
-		<option value="4">Left</option>
-		<option value="5">Right</option>
+		label="MOD_CPB_TITLE_POSITION_LABEL"
+		description="MOD_CPB_TITLE_POSITION_DESC">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_POSITION_INSIDE</option>
+		<option value="2">MOD_CPB_POSITION_ABOVE</option>
+		<option value="3">MOD_CPB_POSITION_BELOW</option>
+		<option value="4">MOD_CPB_POSITION_LEFT</option>
+		<option value="5">MOD_CPB_POSITION_RIGHT</option>
 	</field>
 	<field
 		name="cpb_s_title_progress"
 		type="spacer"
-		label="&lt;hr/&gt;Progress settings"/>
+		label="MOD_CPB_S_TITLE_PROGRESS_LABEL"/>
 	<field
 		name="cpb_progress_show"
 		type="radio"
 		default="1"
-		label="Display progress (text)"
+		label="MOD_CPB_PROGRESS_SHOW_LABEL"
 		layout="joomla.form.field.radio.switcher">
 		<option value="0">JNo</option>
 		<option value="1">JYes</option>
@@ -92,32 +92,32 @@
 		name="cpb_progress_position"
 		type="list"
 		default="0"
-		label="Progress position"
-		description="Position of the progress text in relation to the progress bar">
-		<option value="0">Default</option>
-		<option value="1">Inside</option>
-		<option value="2">Above</option>
-		<option value="3">Below</option>
-		<option value="4">Left</option>
-		<option value="5">Right</option>
+		label="MOD_CPB_PROGRESS_POSITION_LABEL"
+		description="MOD_CPB_PROGRESS_POSITION_DESC">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_POSITION_INSIDE</option>
+		<option value="2">MOD_CPB_POSITION_ABOVE</option>
+		<option value="3">MOD_CPB_POSITION_BELOW</option>
+		<option value="4">MOD_CPB_POSITION_LEFT</option>
+		<option value="5">MOD_CPB_POSITION_RIGHT</option>
 	</field>
 	<field
 		name="cpb_progress_min"
 		type="number"
-		label="Current Progress"
+		label="MOD_CPB_CUR_PROGRESS_LABEL"
 		default="0"
 		step="1"/>
 	<field
 		name="cpb_progress_max"
 		type="number"
-		label="Maximum Progress"
+		label="MOD_CPB_MAX_PROGRESS_LABEL"
 		default="100"
 		step="1"/>
 	<field
 		name="cpb_progress_percent"
 		type="radio"
 		default="1"
-		label="Progress as percent?"
+		label="MOD_CPB_PROGRESS_PERCENT_LABEL"
 		layout="joomla.form.field.radio.switcher">
 		<option value="0">JNo</option>
 		<option value="1">JYes</option>
@@ -125,30 +125,30 @@
 	<field
 		name="cpb_progress_label"
 		type="text"
-		label="Progress unit"
+		label="MOD_CPB_PROGRESS_UNIT_LABEL"
 		default=""
-		description="Alternative label for the progress. Can be empty. Will not be applied, when progress is displayed as percentage."/>
+		description="MOD_CPB_PROGRESS_LABEL_DESC"/>
 	<field
 		name="cpb_s_progress_overwrite"
 		type="spacer"
-		label="&lt;hr/&gt;Overwrite defaults"/>
+		label="MOD_CPB_S_PROGRESS_OVERWRITE_LABEL"/>
 	<field
 		name="cpb_mouseover"
 		type="list"
 		default="0"
-		label="Mouseover effect (tooltip)"
-		description="Content for the tooltip, when hovering over the progress bar">
-		<option value="0">Default</option>
-		<option value="1">None</option>
-		<option value="2">Show title</option>
-		<option value="3">Show progress</option>
-		<option value="4">Show progress (no label)</option>
+		label="MOD_CPB_MOUSEOVER_LABEL"
+		description="MOD_CPB_MOUSEOVER_DESC">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_MOUSEOVER_NONE</option>
+		<option value="2">MOD_CPB_MOUSEOVER_TITLE</option>
+		<option value="3">MOD_CPB_MOUSEOVER_PROGRESS</option>
+		<option value="4">MOD_CPB_MOUSEOVER_PROGRESS_NOL</option>
 	</field>
 	<field
 		name="cpb_custom_colors"
 		type="subform"
-		label="Custom colors"
-		description="If enabled, individual colors can be set for each progress bar. Otherwise the default is used."
+		label="MOD_CPB_CUSTOM_COLORS_LABEL"
+		description="MOD_CPB_CUSTOM_COLORS_DESC"
 		multiple="true"
 		min="0"
 		max="1"
@@ -158,7 +158,7 @@
 				name="cpb_color_text_inherit"
 				type="radio"
 				default="1"
-				label="Inherit the text color from the Template?"
+				label="MOD_CPB_COLOR_INHERIT_LABEL"
 				layout="joomla.form.field.radio.switcher">
 				<option value="0">JNo</option>
 				<option value="1">JYes</option>
@@ -168,54 +168,56 @@
 				type="color"
 				default="#000000"
 				format="rgb"
-				label="Text color"/>
+				label="MOD_CPB_COLOR_TEXT_LABEL"/>
 			<field
 				name="cpb_color_bg"
 				type="color"
 				default="#FFFFFF00"
 				format="rgba"
-				label="Progress bar background color"/>
+				label="MOD_CPB_COLOR_BG_LABEL"/>
 			<field
 				name="cpb_color_border"
 				type="color"
 				default="#777777"
 				format="rgba"
-				label="Progress bar border color"/>
+				label="MOD_CPB_COLOR_BORDER_LABEL"/>
 			<field
 				name="cpb_color_filled"
 				type="color"
 				default="#66CC66"
 				format="rgba"
-				label="Progress bar filled color"/>
+				label="MOD_CPB_COLOR_FILLED_LABEL"/>
 			<field
 				name="cpb_color_empty"
 				type="color"
 				default="#FF4D4D"
 				format="rgba"
-				label="Progress bar empty color"/>
+				label="MOD_CPB_COLOR_EMPTY_LABEL"/>
 		</form>
 	</field>
 	<field
 		name="cpb_gradient"
 		type="list"
 		default="0"
-		label="Progress gradient">
-		<option value="0">Default</option>
-		<option value="1">Only Filled color</option>
-		<option value="2">Only Empty color</option>
-		<option value="3">Mixed color (by progress)</option>
-		<option value="4">Linear Gradient (current progress)</option>
+		label="MOD_CPB_GRADIENT_LABEL"
+		description="MOD_CPB_GRADIENT_DESC">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_GRADIENT_FILLED</option>
+		<option value="2">MOD_CPB_GRADIENT_EMPTY</option>
+		<option value="3">MOD_CPB_GRADIENT_MIX</option>
+		<option value="4">MOD_CPB_GRADIENT_LINEAR</option>
 	</field>
 	<field
 		name="cpb_style"
 		type="list"
 		default="0"
-		label="Progress bar style">
-		<option value="0">Default</option>
-		<option value="1">Rounded</option>
-		<option value="2">Edges</option>
-		<option value="3">Circle</option>
-		<option value="4">Tilt left</option>
-		<option value="5">Tilt right</option>
+		label="MOD_CPB_STYLE_LABEL"
+		description="MOD_CPB_STYLE_DESC">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_STYLE_ROUNDED</option>
+		<option value="2">MOD_CPB_STYLE_EDGES</option>
+		<option value="3">MOD_CPB_STYLE_CIRCLE</option>
+		<option value="4">MOD_CPB_STYLE_TL</option>
+		<option value="5">MOD_CPB_STYLE_TR</option>
 	</field>
 </form>
