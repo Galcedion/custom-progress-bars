@@ -62,12 +62,12 @@ foreach($stored_config['cbp_form'] as $cbp_form => $form_data) {
 	}
 	$g_cpb_config['cpb'][$cbp_form]['color_overwrite'] = $form_data['cpb_custom_colors'];
 	$g_cpb_config['cpb'][$cbp_form]['lang_alt'] = [];
-	foreach($form_data['cpb_lang_sub'] as $lang_form) {
+	foreach($form_data['cpb_lang_sub'] as $lang_form) { // load alternative languages
 		$g_cpb_config['cpb'][$cbp_form]['lang_alt'][$lang_form['cpb_lang_sub_lang']] = ['title' => $lang_form['cpb_lang_sub_title'], 'progress_label' => $lang_form['cpb_lang_sub_progress_label']];
 	}
 }
 $g_cpb_config['current_lang'] = Factory::getLanguage()->getTag(); // the language the user is currently using
-foreach($stored_config['header_form'] as $header_lang) {
+foreach($stored_config['header_form'] as $header_lang) { // overwrite header if lang set
 	if($g_cpb_config['current_lang'] == $header_lang['header_lang'])
 		$g_cpb_config['header'] = trim($header_lang['header_alt']);
 }

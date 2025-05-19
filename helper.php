@@ -22,14 +22,14 @@ class ModCustomProgressBars
 	 * @return array of finished progress bars (assoc arrays)
 	 */
 	public static function prepare_progress_bars($g_cpb_config) {
-		foreach($g_cpb_config['cpb'] as $key => $bar) {
-			if(!$g_cpb_config['cpb'][$key]['cpb_enabled']) {
+		foreach($g_cpb_config['cpb'] as $key => $bar) { // iterate progress bars
+			if(!$g_cpb_config['cpb'][$key]['cpb_enabled']) { // if progress bar disabled, remove from list
 				unset($g_cpb_config['cpb'][$key]);
 				continue;
-			} elseif($g_cpb_config['cpb'][$key]['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) {
+			} elseif($g_cpb_config['cpb'][$key]['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) { // if progress bar lang forced and unavailable, remove from list
 				unset($g_cpb_config['cpb'][$key]);
 				continue;
-			} elseif(array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) {
+			} elseif(array_key_exists($g_cpb_config['current_lang'], $g_cpb_config['cpb'][$key]['lang_alt'])) { // map alternative lang
 				$g_cpb_config['cpb'][$key]['cpb_title'] =  $g_cpb_config['cpb'][$key]['lang_alt'][$g_cpb_config['current_lang']]['title'];
 				$g_cpb_config['cpb'][$key]['cpb_progress_label'] =  $g_cpb_config['cpb'][$key]['lang_alt'][$g_cpb_config['current_lang']]['progress_label'];
 			}
@@ -44,7 +44,7 @@ class ModCustomProgressBars
 			if($g_cpb_config['cpb'][$key]['cpb_style'] == 0)
 				$g_cpb_config['cpb'][$key]['cpb_style'] = $g_cpb_config['style_default'];
 			$g_cpb_config['cpb'][$key]['display_title'] = $g_cpb_config['cpb'][$key]['cpb_title_show'] ? $g_cpb_config['cpb'][$key]['cpb_title'] : FALSE;
-			if($g_cpb_config['cpb'][$key]['cpb_progress_show']) {
+			if($g_cpb_config['cpb'][$key]['cpb_progress_show']) { // prepare progress text
 				if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {
 					$g_cpb_config['cpb'][$key]['display_progress'] = round(100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . ' %';
 				} else {
@@ -67,6 +67,7 @@ class ModCustomProgressBars
 					$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . $g_cpb_config['cpb'][$key]['cpb_progress_min'] . ' / ' . $g_cpb_config['cpb'][$key]['cpb_progress_max'] . '"';
 				}
 			}
+			/* set colors */
 			if(empty($g_cpb_config['cpb'][$key]['color_overwrite'])) {
 				$g_cpb_config['cpb'][$key]['cpb_color_text'] = $g_cpb_config['color_text_inherit_default'] ? '' : $g_cpb_config['color_text_default'];
 				$g_cpb_config['cpb'][$key]['cpb_color_bg'] = $g_cpb_config['color_bg_default'];
@@ -80,6 +81,7 @@ class ModCustomProgressBars
 				$g_cpb_config['cpb'][$key]['cpb_color_filled'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_filled'];
 				$g_cpb_config['cpb'][$key]['cpb_color_empty'] = $g_cpb_config['cpb'][$key]['color_overwrite']['cpb_custom_colors0']['cpb_color_empty'];
 			}
+			/* calculate progress width */
 			if($g_cpb_config['cpb'][$key]['cpb_progress_min'] >= $g_cpb_config['cpb'][$key]['cpb_progress_max'])
 				$g_cpb_config['cpb'][$key]['progress_width'] = 'width:100%;';
 			else

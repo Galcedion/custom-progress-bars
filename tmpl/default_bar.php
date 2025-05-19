@@ -12,22 +12,24 @@ $cpb_color_text = $cpb['cpb_color_text'] == '' ? '' : ' style="color:' . $cpb['c
 $cpb_progress_class = 'progress my-auto';
 $cpb_progress_style = 'background-color:' . $cpb['cpb_color_bg'] . ';border: 1px solid ' . $cpb['cpb_color_border'] . ';';
 $cpb_bar_style = $cpb['progress_width'];
-if($cpb['cpb_style'] == 2) {
+/* build styling */
+if($cpb['cpb_style'] == 2) { // rounded
 	$cpb_progress_class .= ' rounded-0';
-} elseif($cpb['cpb_style'] == 3) {
+} elseif($cpb['cpb_style'] == 3) { // circle
 	$cpb_progress_class .= ' rounded-circle';
-} elseif($cpb['cpb_style'] == 4) {
+} elseif($cpb['cpb_style'] == 4) { // tilted left
 	$cpb_progress_style .= 'transform:skewX(30deg);';
 	$cpb_innertext_style = ' style="transform:skewX(-30deg);"';
-} elseif($cpb['cpb_style'] == 5) {
+} elseif($cpb['cpb_style'] == 5) { // tilted right
 	$cpb_progress_style .= 'transform:skewX(-30deg);';
 	$cpb_innertext_style = ' style="transform:skewX(30deg);"';
 }
-if($cpb['cpb_gradient'] == 1) { // creating gradient
+/* building gradient */
+if($cpb['cpb_gradient'] == 1) { // filled
 	$cpb_bar_style .= 'background-color:' . $cpb['cpb_color_filled'] . ';';
-} elseif($cpb['cpb_gradient'] == 2) {
+} elseif($cpb['cpb_gradient'] == 2) { // empty
 	$cpb_bar_style .= 'background-color:' . $cpb['cpb_color_empty'] . ';';
-} elseif($cpb['cpb_gradient'] == 3) {
+} elseif($cpb['cpb_gradient'] == 3) { // mix
 	$cpb_bar_style .= 'background-color:color-mix(in hsl,';
 	if($cpb['cpb_progress_min'] > $cpb['cpb_progress_max'])
 		$cpb['cpb_progress_min'] = $cpb['cpb_progress_max'];
@@ -38,7 +40,7 @@ if($cpb['cpb_gradient'] == 1) { // creating gradient
 		$cpb['cpb_progress_max'] = $cpb['cpb_progress_max'] / (pow(10, max($min_len, $max_len)));
 	}
 	$cpb_bar_style .= $cpb['cpb_color_filled'] . ' ' . $cpb['cpb_progress_min'] . '%,' . $cpb['cpb_color_empty'] . ' ' . ($cpb['cpb_progress_max'] - $cpb['cpb_progress_min']) . '%);';
-} elseif($cpb['cpb_gradient'] == 4) {
+} elseif($cpb['cpb_gradient'] == 4) { // linear gradient
 	$cpb_bar_style .= 'background-image:linear-gradient(90deg,' . $cpb['cpb_color_empty'] . ',' . $cpb['cpb_color_filled'] . ');';
 }
 $cpb_title_class = '';
