@@ -20,6 +20,9 @@
 		<language tag="de-DE">de-DE/de-DE.mod_customprogressbars.ini</language>
 		<language tag="de-DE">de-DE/de-DE.mod_customprogressbars.sys.ini</language>
 	</languages>
+	<updateservers>
+		<server type="extension" name="mod_customprogressbars">https://raw.githubusercontent.com/Galcedion/custom-progress-bars/master/cpb_update.xml</server>
+	</updateservers>
     <config>
 		<fields name="params">
 			<fieldset name="basic">
