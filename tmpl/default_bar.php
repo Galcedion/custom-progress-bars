@@ -58,7 +58,7 @@ if($colcount > 0) {
 	$cpb_progress_class .= ' col-' . (12 - $colcount);
 	$cpb['cpb_class'] .= ' row g-0';
 }
-$cpb['cpb_class'] = 'class="text-center my-1 ' . $cpb['cpb_class'] . '"'; // TODO: possible whitespace
+$cpb['cpb_class'] = 'class="text-center my-1' . (empty($cpb['cpb_class']) ? '' : ' ' . $cpb['cpb_class']) . '"';
 ?>
 <div<?=$cpb_color_text;?> <?=$cpb['cpb_class'];?><?=$cpb['tooltip'];?>>
 	<?php if($cpb['display_title'] && ($cpb['cpb_title_position'] == 2 || $cpb['cpb_title_position'] == 4)): ?>
