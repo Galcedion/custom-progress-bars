@@ -44,13 +44,14 @@ class ModCustomProgressBars
 			if($g_cpb_config['cpb'][$key]['cpb_style'] == 0)
 				$g_cpb_config['cpb'][$key]['cpb_style'] = $g_cpb_config['style_default'];
 			$g_cpb_config['cpb'][$key]['display_title'] = $g_cpb_config['cpb'][$key]['cpb_title_show'] ? $g_cpb_config['cpb'][$key]['cpb_title'] : FALSE;
+			if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {
+				$tmp_display_progress = round(100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . ' %';
+			} else {
+				$tmp_display_progress = $g_cpb_config['cpb'][$key]['cpb_progress_min'] . ' / ' . $g_cpb_config['cpb'][$key]['cpb_progress_max'];
+				$tmp_display_progress .= (empty($g_cpb_config['cpb'][$key]['cpb_progress_min']) ? '' : ' ' . $g_cpb_config['cpb'][$key]['cpb_progress_label']);
+			}
 			if($g_cpb_config['cpb'][$key]['cpb_progress_show']) { // prepare progress text
-				if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {
-					$g_cpb_config['cpb'][$key]['display_progress'] = round(100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . ' %';
-				} else {
-					$g_cpb_config['cpb'][$key]['display_progress'] = $g_cpb_config['cpb'][$key]['cpb_progress_min'] . ' / ' . $g_cpb_config['cpb'][$key]['cpb_progress_max'];
-					$g_cpb_config['cpb'][$key]['display_progress'] .= (empty($g_cpb_config['cpb'][$key]['cpb_progress_min']) ? '' : ' ' . $g_cpb_config['cpb'][$key]['cpb_progress_label']);
-				}
+				$g_cpb_config['cpb'][$key]['display_progress'] = $tmp_display_progress;
 			} else {
 				$g_cpb_config['cpb'][$key]['display_progress'] = FALSE;
 			}
@@ -59,7 +60,7 @@ class ModCustomProgressBars
 			if($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 2) // Show title
 				$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . $g_cpb_config['cpb'][$key]['cpb_title'] . '"';
 			elseif($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 3) // Show progress
-				$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . $g_cpb_config['cpb'][$key]['display_progress'] . '"';
+				$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . $tmp_display_progress . '"';
 			elseif($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 4) { // Show progress (no label)
 				if($g_cpb_config['cpb'][$key]['cpb_progress_percent']) {
 					$g_cpb_config['cpb'][$key]['tooltip'] = ' title="' . round(100 / $g_cpb_config['cpb'][$key]['cpb_progress_max'] * $g_cpb_config['cpb'][$key]['cpb_progress_min']) . '"';
