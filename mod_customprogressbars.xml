@@ -63,7 +63,8 @@
 					name="header_form"
 					type="subform"
 					label="MOD_CPB_HEADER_FORM_LABEL"
-					multiple="true">
+					multiple="true"
+					buttons="add,remove">
 					<form>
 						<field
 							name="header_lang"
@@ -86,6 +87,7 @@
 				<field
 					name="s_lang_default_text"
 					type="spacer"
+					class="fw-bold"
 					label="MOD_CPB_S_LANG_DEFAULT"/>
 				<field
 					name="title_position_default"
@@ -191,6 +193,8 @@
 					type="subform"
 					formsource="modules/mod_customprogressbars/cpb_form.xml"
 					label="MOD_CPB_FORM_LABEL"
+					layout="joomla.form.field.subform.repeatable-table"
+					groupByFieldset="true"
 					multiple="true">
 				</field>
 			</fieldset>

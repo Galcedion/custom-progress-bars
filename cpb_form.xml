@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<field
+		fieldset="base"
 		name="cpb_enabled"
 		type="radio"
 		default="1"
@@ -10,16 +11,19 @@
 		<option value="1">JYes</option>
 	</field>
 	<field
+		fieldset="base"
 		name="cpb_class"
 		type="text"
 		label="MOD_CPB_BAR_CLASS_LABEL"
 		description="MOD_CPB_BAR_CLASS_DESC"/>
 	<field
+		fieldset="base"
 		name="cpb_height"
 		type="text"
 		label="MOD_CPB_BAR_HEIGHT_LABEL"
 		description="MOD_CPB_BAR_HEIGHT_DESC"/>
 	<field
+		fieldset="base"
 		name="cpb_lang_force"
 		type="radio"
 		default="0"
@@ -30,9 +34,11 @@
 		<option value="1">JYes</option>
 	</field>
 	<field
+		fieldset="base"
 		name="cpb_lang_sub"
 		type="subform"
 		label="MOD_CPB_LANG_FORM_LABEL"
+		buttons="add,remove"
 		multiple="true">
 		<form>
 			<field
@@ -51,10 +57,13 @@
 		</form>
 	</field>
 	<field
+		fieldset="title"
 		name="cpb_s_main_title"
 		type="spacer"
+		class="fw-bold"
 		label="MOD_CPB_S_MAIN_TITLE_LABEL"/>
 	<field
+		fieldset="title"
 		name="cpb_title_show"
 		type="radio"
 		default="1"
@@ -64,15 +73,19 @@
 		<option value="1">JYes</option>
 	</field>
 	<field
+		fieldset="title"
 		name="cpb_title"
 		type="text"
-		label="MOD_CPB_TITLE_LABEL"/>
+		label="MOD_CPB_TITLE_LABEL"
+		showon="cpb_title_show:1"/>
 	<field
+		fieldset="title"
 		name="cpb_title_position"
 		type="list"
 		default="0"
 		label="MOD_CPB_TITLE_POSITION_LABEL"
-		description="MOD_CPB_TITLE_POSITION_DESC">
+		description="MOD_CPB_TITLE_POSITION_DESC"
+		showon="cpb_title_show:1">
 		<option value="0">MOD_CPB_DEFAULT</option>
 		<option value="1">MOD_CPB_POSITION_INSIDE</option>
 		<option value="2">MOD_CPB_POSITION_ABOVE</option>
@@ -81,10 +94,13 @@
 		<option value="5">MOD_CPB_POSITION_RIGHT</option>
 	</field>
 	<field
+		fieldset="progress"
 		name="cpb_s_title_progress"
 		type="spacer"
+		class="fw-bold"
 		label="MOD_CPB_S_TITLE_PROGRESS_LABEL"/>
 	<field
+		fieldset="progress"
 		name="cpb_progress_show"
 		type="radio"
 		default="1"
@@ -94,11 +110,13 @@
 		<option value="1">JYes</option>
 	</field>
 	<field
+		fieldset="progress"
 		name="cpb_progress_position"
 		type="list"
 		default="0"
 		label="MOD_CPB_PROGRESS_POSITION_LABEL"
-		description="MOD_CPB_PROGRESS_POSITION_DESC">
+		description="MOD_CPB_PROGRESS_POSITION_DESC"
+		showon="cpb_progress_show:1">
 		<option value="0">MOD_CPB_DEFAULT</option>
 		<option value="1">MOD_CPB_POSITION_INSIDE</option>
 		<option value="2">MOD_CPB_POSITION_ABOVE</option>
@@ -107,37 +125,48 @@
 		<option value="5">MOD_CPB_POSITION_RIGHT</option>
 	</field>
 	<field
+		fieldset="progress"
 		name="cpb_progress_min"
 		type="number"
 		label="MOD_CPB_CUR_PROGRESS_LABEL"
 		default="0"
-		step="1"/>
+		step="1"
+		showon="cpb_progress_show:1"/>
 	<field
+		fieldset="progress"
 		name="cpb_progress_max"
 		type="number"
 		label="MOD_CPB_MAX_PROGRESS_LABEL"
 		default="100"
-		step="1"/>
+		step="1"
+		showon="cpb_progress_show:1"/>
 	<field
+		fieldset="progress"
 		name="cpb_progress_percent"
 		type="radio"
 		default="1"
 		label="MOD_CPB_PROGRESS_PERCENT_LABEL"
-		layout="joomla.form.field.radio.switcher">
+		layout="joomla.form.field.radio.switcher"
+		showon="cpb_progress_show:1">
 		<option value="0">JNo</option>
 		<option value="1">JYes</option>
 	</field>
 	<field
+		fieldset="progress"
 		name="cpb_progress_label"
 		type="text"
 		label="MOD_CPB_PROGRESS_UNIT_LABEL"
 		default=""
-		description="MOD_CPB_PROGRESS_LABEL_DESC"/>
+		description="MOD_CPB_PROGRESS_LABEL_DESC"
+		showon="cpb_progress_percent:1"/>
 	<field
+		fieldset="overwrite"
 		name="cpb_s_progress_overwrite"
 		type="spacer"
+		class="fw-bold"
 		label="MOD_CPB_S_PROGRESS_OVERWRITE_LABEL"/>
 	<field
+		fieldset="overwrite"
 		name="cpb_mouseover"
 		type="list"
 		default="0"
@@ -150,6 +179,34 @@
 		<option value="4">MOD_CPB_MOUSEOVER_PROGRESS_NOL</option>
 	</field>
 	<field
+		fieldset="overwrite"
+		name="cpb_gradient"
+		type="list"
+		default="0"
+		label="MOD_CPB_GRADIENT_LABEL"
+		description="MOD_CPB_GRADIENT_DESC">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_GRADIENT_FILLED</option>
+		<option value="2">MOD_CPB_GRADIENT_EMPTY</option>
+		<option value="3">MOD_CPB_GRADIENT_MIX</option>
+		<option value="4">MOD_CPB_GRADIENT_LINEAR</option>
+	</field>
+	<field
+		fieldset="overwrite"
+		name="cpb_style"
+		type="list"
+		default="0"
+		label="MOD_CPB_STYLE_LABEL"
+		description="MOD_CPB_STYLE_DESC">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_STYLE_ROUNDED</option>
+		<option value="2">MOD_CPB_STYLE_EDGES</option>
+		<option value="3">MOD_CPB_STYLE_CIRCLE</option>
+		<option value="4">MOD_CPB_STYLE_TL</option>
+		<option value="5">MOD_CPB_STYLE_TR</option>
+	</field>
+	<field
+		fieldset="overwrite"
 		name="cpb_custom_colors"
 		type="subform"
 		label="MOD_CPB_CUSTOM_COLORS_LABEL"
@@ -199,30 +256,5 @@
 				format="rgba"
 				label="MOD_CPB_COLOR_EMPTY_LABEL"/>
 		</form>
-	</field>
-	<field
-		name="cpb_gradient"
-		type="list"
-		default="0"
-		label="MOD_CPB_GRADIENT_LABEL"
-		description="MOD_CPB_GRADIENT_DESC">
-		<option value="0">MOD_CPB_DEFAULT</option>
-		<option value="1">MOD_CPB_GRADIENT_FILLED</option>
-		<option value="2">MOD_CPB_GRADIENT_EMPTY</option>
-		<option value="3">MOD_CPB_GRADIENT_MIX</option>
-		<option value="4">MOD_CPB_GRADIENT_LINEAR</option>
-	</field>
-	<field
-		name="cpb_style"
-		type="list"
-		default="0"
-		label="MOD_CPB_STYLE_LABEL"
-		description="MOD_CPB_STYLE_DESC">
-		<option value="0">MOD_CPB_DEFAULT</option>
-		<option value="1">MOD_CPB_STYLE_ROUNDED</option>
-		<option value="2">MOD_CPB_STYLE_EDGES</option>
-		<option value="3">MOD_CPB_STYLE_CIRCLE</option>
-		<option value="4">MOD_CPB_STYLE_TL</option>
-		<option value="5">MOD_CPB_STYLE_TR</option>
 	</field>
 </form>
