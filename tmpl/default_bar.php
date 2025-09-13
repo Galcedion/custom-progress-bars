@@ -54,7 +54,7 @@ if($cpb['cpb_progress_position'] >= 4) {
 }
 if($colcount > 0) {
 	$cpb_progress_class .= ' col-' . (12 - $colcount);
-	$cpb['cpb_class'] .= ' row g-0';
+	$cpb['cpb_class'] .= (empty($cpb['cpb_class']) ? '' : ' ') . 'row g-0';
 }
 $cpb['cpb_class'] = 'class="text-center my-1' . (empty($cpb['cpb_class']) ? '' : ' ' . $cpb['cpb_class']) . '"';
 ?>
