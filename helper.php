@@ -55,6 +55,10 @@ class ModCustomProgressBars
 			} else {
 				$g_cpb_config['cpb'][$key]['display_progress'] = FALSE;
 			}
+			if(is_numeric($g_cpb_config['cpb'][$key]['cpb_height'])) {
+				$g_cpb_config['cpb'][$key]['cpb_height'] .= 'px';
+			}
+			$g_cpb_config['cpb'][$key]['cpb_height'] = str_replace(' ', '', $g_cpb_config['cpb'][$key]['cpb_height']);
 			/* build tooltip */
 			$g_cpb_config['cpb'][$key]['tooltip'] = ''; // None (1) or out of bounds
 			if($g_cpb_config['cpb'][$key]['cpb_mouseover'] == 2) // Show title

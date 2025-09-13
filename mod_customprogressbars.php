@@ -33,7 +33,7 @@ $progress_form_list_int = [
 	'cpb_mouseover', 'cpb_gradient', 'cpb_style'
 ];
 $progress_form_list_str = [
-	'cpb_class', 'cpb_title', 'cpb_progress_label'
+	'cpb_class', 'cpb_title', 'cpb_progress_label', 'cpb_height'
 ];
 /* building main config */
 $stored_config = $params->toArray();

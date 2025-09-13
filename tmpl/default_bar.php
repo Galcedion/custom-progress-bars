@@ -12,6 +12,8 @@ $cpb_color_text = $cpb['cpb_color_text'] == '' ? '' : ' style="color:' . $cpb['c
 $cpb_progress_class = 'progress my-auto';
 $cpb_progress_style = 'background-color:' . $cpb['cpb_color_bg'] . ';border: 1px solid ' . $cpb['cpb_color_border'] . ';';
 $cpb_bar_style = $cpb['progress_width'];
+if(!empty($cpb['cpb_height']))
+	$cpb_progress_style .= 'height:' . $cpb['cpb_height'] . ';';
 $cpb_innertext_style = NULL;
 /* build styling */
 if($cpb['cpb_style'] == 2) { // rounded

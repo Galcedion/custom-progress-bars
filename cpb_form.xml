@@ -15,6 +15,11 @@
 		label="MOD_CPB_BAR_CLASS_LABEL"
 		description="MOD_CPB_BAR_CLASS_DESC"/>
 	<field
+		name="cpb_height"
+		type="text"
+		label="MOD_CPB_BAR_HEIGHT_LABEL"
+		description="MOD_CPB_BAR_HEIGHT_DESC"/>
+	<field
 		name="cpb_lang_force"
 		type="radio"
 		default="0"
