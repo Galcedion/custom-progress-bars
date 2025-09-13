@@ -198,6 +198,8 @@
 					multiple="true">
 				</field>
 			</fieldset>
+			<fieldset name="cssmap" label="MOD_CPB_CSSMAP_LABEL" description="MOD_CPB_CSSMAP_DESC">
+			</fieldset>
 		</fields>
     </config>
 </extension>
