@@ -13,6 +13,7 @@ The module has settings affecting all progress bars as well as individual progre
 ### Progress Bar Settings
 - enable or disable the progress bar without deleting it
 - set class name for the progress bar
+- set height of the progress bar
 - set text and position for title and progress (supports multiple languages)
 - progress can be in percent or in a custom unit
 - overwrite defaults for colors, display style and displayed texts
