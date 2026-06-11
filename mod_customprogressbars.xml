@@ -58,6 +58,7 @@
 					type="editor"
 					label="MOD_CPB_HEADER_LABEL"
 					description="MOD_CPB_HEADER_DESC"
+					height="250"
 					filter="safehtml"/>
 				<field
 					name="header_form"
@@ -75,6 +76,7 @@
 							name="header_alt"
 							type="editor"
 							label="MOD_CPB_HEADER_FORM_ALT_LABEL"
+							height="250"
 							filter="safehtml"/>
 					</form>
 				</field>
@@ -142,7 +144,7 @@
 				<field
 					name="color_bg_default"
 					type="color"
-					default="#FFFFFF00"
+					default="#FFFFFF"
 					format="rgba"
 					label="MOD_CPB_COLOR_BG_LABEL"/>
 				<field

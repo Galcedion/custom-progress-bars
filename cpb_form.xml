@@ -101,6 +101,20 @@
 		label="MOD_CPB_S_TITLE_PROGRESS_LABEL"/>
 	<field
 		fieldset="progress"
+		name="cpb_progress_min"
+		type="number"
+		label="MOD_CPB_CUR_PROGRESS_LABEL"
+		default="0"
+		step="1"/>
+	<field
+		fieldset="progress"
+		name="cpb_progress_max"
+		type="number"
+		label="MOD_CPB_MAX_PROGRESS_LABEL"
+		default="100"
+		step="1"/>
+	<field
+		fieldset="progress"
 		name="cpb_progress_show"
 		type="radio"
 		default="1"
@@ -126,22 +140,6 @@
 	</field>
 	<field
 		fieldset="progress"
-		name="cpb_progress_min"
-		type="number"
-		label="MOD_CPB_CUR_PROGRESS_LABEL"
-		default="0"
-		step="1"
-		showon="cpb_progress_show:1"/>
-	<field
-		fieldset="progress"
-		name="cpb_progress_max"
-		type="number"
-		label="MOD_CPB_MAX_PROGRESS_LABEL"
-		default="100"
-		step="1"
-		showon="cpb_progress_show:1"/>
-	<field
-		fieldset="progress"
 		name="cpb_progress_percent"
 		type="radio"
 		default="1"
@@ -158,7 +156,7 @@
 		label="MOD_CPB_PROGRESS_UNIT_LABEL"
 		default=""
 		description="MOD_CPB_PROGRESS_LABEL_DESC"
-		showon="cpb_progress_percent:1"/>
+		showon="cpb_progress_show:1[AND]cpb_progress_percent:0"/>
 	<field
 		fieldset="overwrite"
 		name="cpb_s_progress_overwrite"
@@ -234,7 +232,7 @@
 			<field
 				name="cpb_color_bg"
 				type="color"
-				default="#FFFFFF00"
+				default="#FFFFFF"
 				format="rgba"
 				label="MOD_CPB_COLOR_BG_LABEL"/>
 			<field
