@@ -31,6 +31,19 @@
 		description="MOD_CPB_BAR_HEIGHT_DESC"/>
 	<field
 		fieldset="base"
+		name="cpb_3d"
+		type="list"
+		default="0"
+		label="MOD_CPB_3D_LABEL"
+		description="">
+		<option value="0">MOD_CPB_DEFAULT</option>
+		<option value="1">MOD_CPB_3D_NONE</option>
+		<option value="2">MOD_CPB_3D_ALL</option>
+		<option value="3">MOD_CPB_3D_PROGRESS_ONLY</option>
+		<option value="4">MOD_CPB_3D_BACKGROUND_ONLY</option>
+	</field>
+	<field
+		fieldset="base"
 		name="cpb_lang_force"
 		type="radio"
 		default="0"
@@ -260,6 +273,12 @@
 				default="#FF4D4D"
 				format="rgba"
 				label="MOD_CPB_COLOR_EMPTY_LABEL"/>
+			<field
+				name="cpb_color_3d"
+				type="color"
+				default="rgba(0,0,0,0.5)"
+				format="rgba"
+				label="MOD_CPB_COLOR_3D_LABEL"/>
 		</form>
 	</field>
 </form>

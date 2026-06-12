@@ -127,6 +127,17 @@
 					<option value="4">MOD_CPB_MOUSEOVER_PROGRESS_NOL</option>
 				</field>
 				<field
+					name="3d_default"
+					type="list"
+					default="1"
+					label="MOD_CPB_3D_LABEL"
+					description="">
+					<option value="1">MOD_CPB_3D_NONE</option>
+					<option value="2">MOD_CPB_3D_ALL</option>
+					<option value="3">MOD_CPB_3D_PROGRESS_ONLY</option>
+					<option value="4">MOD_CPB_3D_BACKGROUND_ONLY</option>
+				</field>
+				<field
 					name="color_text_inherit_default"
 					type="radio"
 					default="1"
@@ -188,6 +199,12 @@
 					<option value="4">MOD_CPB_STYLE_TL</option>
 					<option value="5">MOD_CPB_STYLE_TR</option>
 				</field>
+				<field
+					name="color_3d_default"
+					type="color"
+					default="rgba(0,0,0,0.5)"
+					format="rgba"
+					label="MOD_CPB_COLOR_3D_LABEL"/>
 			</fieldset>
 			<fieldset name="cpb" label="MOD_CPB_LABEL">
 				<field

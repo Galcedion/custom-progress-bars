@@ -18,11 +18,12 @@ $param_list_bool = [
 ];
 $param_list_int = [
 	'title_position_default', 'progress_position_default', 'mouseover_default',
-	'gradient_default', 'style_default', 'width', 'horizontal_position'
+	'gradient_default', 'style_default', 'width', 'horizontal_position', '3d_default'
 ];
 $param_list_str = [
 	'g_class', 'custom_css', 'header',
-	'color_text_default', 'color_bg_default', 'color_border_default', 'color_filled_default', 'color_empty_default'
+	'color_text_default', 'color_bg_default', 'color_border_default', 'color_filled_default',
+	'color_empty_default', 'color_3d_default'
 ];
 $progress_form_list_bool = [
 	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force',
@@ -30,7 +31,7 @@ $progress_form_list_bool = [
 ];
 $progress_form_list_int = [
 	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max',
-	'cpb_mouseover', 'cpb_gradient', 'cpb_style'
+	'cpb_mouseover', 'cpb_gradient', 'cpb_style', 'cpb_3d'
 ];
 $progress_form_list_str = [
 	'cpb_class', 'cpb_title', 'cpb_progress_label', 'cpb_height'

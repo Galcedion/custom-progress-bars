@@ -41,6 +41,13 @@ if($cpb['cpb_gradient'] == 1) { // filled
 } elseif($cpb['cpb_gradient'] == 4) { // linear gradient
 	$cpb_bar_style .= 'background-image:linear-gradient(90deg,' . $cpb['cpb_color_empty'] . ',' . $cpb['cpb_color_filled'] . ');';
 }
+/* build 3d*/
+if($cpb['cpb_3d'] == 2 || $cpb['cpb_3d'] == 3) { // progress, all or only progress
+	$cpb_bar_style .= 'box-shadow:inset 0px 0px 5px 0px ' . $cpb['cpb_color_3d'] . ';';
+}
+if($cpb['cpb_3d'] == 2 || $cpb['cpb_3d'] == 4) { // background; all or only background
+	$cpb_progress_style .= 'box-shadow:inset 0px 0px 5px 0px ' . $cpb['cpb_color_3d'] . ';';
+}
 $cpb_title_class = '';
 $cpb_progress_label_class = '';
 $colcount = 0;
