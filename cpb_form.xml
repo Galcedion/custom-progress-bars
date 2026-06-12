@@ -84,7 +84,7 @@
 		name="cpb_title"
 		type="text"
 		label="MOD_CPB_TITLE_LABEL"
-		showon="cpb_title_show:1"/>
+		showon="cpb_title_show:1[OR]cpb_mouseover:2"/>
 	<field
 		fieldset="title"
 		name="cpb_title_position"
@@ -92,7 +92,7 @@
 		default="0"
 		label="MOD_CPB_TITLE_POSITION_LABEL"
 		description="MOD_CPB_TITLE_POSITION_DESC"
-		showon="cpb_title_show:1">
+		showon="cpb_title_show:1[OR]cpb_mouseover:2">
 		<option value="0">MOD_CPB_DEFAULT</option>
 		<option value="1">MOD_CPB_POSITION_INSIDE</option>
 		<option value="2">MOD_CPB_POSITION_ABOVE</option>
@@ -137,7 +137,7 @@
 		default="0"
 		label="MOD_CPB_PROGRESS_POSITION_LABEL"
 		description="MOD_CPB_PROGRESS_POSITION_DESC"
-		showon="cpb_progress_show:1">
+		showon="cpb_progress_show:1[OR]cpb_mouseover:3[OR]cpb_mouseover:4">
 		<option value="0">MOD_CPB_DEFAULT</option>
 		<option value="1">MOD_CPB_POSITION_INSIDE</option>
 		<option value="2">MOD_CPB_POSITION_ABOVE</option>
@@ -152,7 +152,7 @@
 		default="1"
 		label="MOD_CPB_PROGRESS_PERCENT_LABEL"
 		layout="joomla.form.field.radio.switcher"
-		showon="cpb_progress_show:1">
+		showon="cpb_progress_show:1[OR]cpb_mouseover:3[OR]cpb_mouseover:4">
 		<option value="0">JNo</option>
 		<option value="1">JYes</option>
 	</field>
@@ -163,7 +163,7 @@
 		label="MOD_CPB_PROGRESS_UNIT_LABEL"
 		default=""
 		description="MOD_CPB_PROGRESS_LABEL_DESC"
-		showon="cpb_progress_show:1[AND]cpb_progress_percent:0"/>
+		showon="cpb_progress_show:1[AND]cpb_progress_percent:0[OR]cpb_mouseover:3[OR]cpb_mouseover:4"/>
 	<field
 		fieldset="overwrite"
 		name="cpb_s_progress_overwrite"
