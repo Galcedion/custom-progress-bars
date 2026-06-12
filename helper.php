@@ -32,10 +32,10 @@ class ModCustomProgressBars
 
 		foreach($g_cpb_config['cpb'] as &$key) { // iterate progress bars
 			if(!$key['cpb_enabled']) { // if progress bar disabled, remove from list
-				unset($key);
+				$key = NULL;
 				continue;
 			} elseif($key['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $key['lang_alt'])) { // if progress bar lang forced and unavailable, remove from list
-				unset($key);
+				$key = NULL;
 				continue;
 			} elseif(array_key_exists($g_cpb_config['current_lang'], $key['lang_alt'])) { // map alternative lang
 				$key['cpb_title'] =  $key['lang_alt'][$g_cpb_config['current_lang']]['title'];
@@ -95,6 +95,6 @@ class ModCustomProgressBars
 				$key['progress_width'] = 'width:' . (100 / $key['cpb_progress_max'] * $key['cpb_progress_min']) . '%;';
 		}
 		unset($key);
-		return $g_cpb_config['cpb'];
+		return array_filter($g_cpb_config['cpb']);
 	}
 }
