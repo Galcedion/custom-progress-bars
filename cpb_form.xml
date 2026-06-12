@@ -2,6 +2,13 @@
 <form>
 	<field
 		fieldset="base"
+		name="cpb_name"
+		type="text"
+		class="bg-info text-white"
+		label="MOD_CPB_BAR_NAME_LABEL"
+		description="MOD_CPB_BAR_NAME_DESC"/>
+	<field
+		fieldset="base"
 		name="cpb_enabled"
 		type="radio"
 		default="1"
