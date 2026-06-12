@@ -84,12 +84,12 @@ class ModCustomProgressBars
 				$key['cpb_color_empty'] = $g_cpb_config['color_empty_default'];
 				$key['cpb_color_3d'] = $g_cpb_config['color_3d_default'];
 			} else {
-				$key['cpb_color_text'] = $key['color_overwrite']['cpb_custom_colors0']['cpb_color_text'] == 0 ? '' : $key['color_overwrite']['cpb_custom_colors0']['cpb_color_text'];
-				$key['cpb_color_bg'] = $key['color_overwrite']['cpb_custom_colors0']['cpb_color_bg'];
-				$key['cpb_color_border'] = $key['color_overwrite']['cpb_custom_colors0']['cpb_color_border'];
-				$key['cpb_color_filled'] = $key['color_overwrite']['cpb_custom_colors0']['cpb_color_filled'];
-				$key['cpb_color_empty'] = $key['color_overwrite']['cpb_custom_colors0']['cpb_color_empty'];
-				$key['cpb_color_3d'] = $key['color_overwrite']['cpb_custom_colors0']['cpb_color_3d'];
+				$key['cpb_color_text'] = $key['color_overwrite']['cpb_color_text'] == 0 ? '' : $key['color_overwrite']['cpb_color_text'];
+				$key['cpb_color_bg'] = $key['color_overwrite']['cpb_color_bg'];
+				$key['cpb_color_border'] = $key['color_overwrite']['cpb_color_border'];
+				$key['cpb_color_filled'] = $key['color_overwrite']['cpb_color_filled'];
+				$key['cpb_color_empty'] = $key['color_overwrite']['cpb_color_empty'];
+				$key['cpb_color_3d'] = $key['color_overwrite']['cpb_color_3d'];
 			}
 			/* calculate progress width */
 			if($key['cpb_progress_min'] >= $key['cpb_progress_max'])

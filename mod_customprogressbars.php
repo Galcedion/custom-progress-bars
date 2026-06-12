@@ -12,65 +12,123 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 require_once dirname(__FILE__) . '/helper.php';
 
-/* types of config parameters (only these will be used) */
-$param_list_bool = [
-	'color_text_inherit_default'
+/**
+ * types of config parameters (only these will be used)
+ * each param has a name (key) with an array of type and default value
+ * types: bool, int, str
+ */
+$cpb_params_basic = [
+	'g_class' => ['str', 'g-mod-cpb'],
+	'width' => ['int', 100],
+	'horizontal_position' => ['int', 1],
+	'header' => ['str', ''],
+	'custom_css' => ['str', ''],
+	'title_position_default' => ['int', 1],
+	'progress_position_default' => ['int', 1],
+	'mouseover_default' => ['int', 1],
+	'3d_default' => ['int', 1],
+	'color_text_inherit_default' => ['bool', TRUE],
+	'color_text_default' => ['str', '#000000'],
+	'color_bg_default' => ['str', '#FFFFFF'],
+	'color_border_default' => ['str', '#777777'],
+	'color_filled_default' => ['str', '#66CC66'],
+	'color_empty_default' => ['str', '#FF4D4D'],
+	'gradient_default' => ['int', 1],
+	'style_default' => ['int', 1],
+	'color_3d_default' => ['str', 'rgba(0,0,0,0.5)'],
 ];
-$param_list_int = [
-	'title_position_default', 'progress_position_default', 'mouseover_default',
-	'gradient_default', 'style_default', 'width', 'horizontal_position', '3d_default'
+$cpb_params_bar = [
+	'cpb_enabled' => ['bool', TRUE],
+	'cpb_class' => ['str', ''],
+	'cpb_height' => ['str', ''],
+	'cpb_3d' => ['int', 0],
+	'cpb_lang_force' => ['bool', FALSE],
+	'cpb_title_show' => ['bool', TRUE],
+	'cpb_title' => ['str', ''],
+	'cpb_title_position' => ['int', 0],
+	'cpb_progress_min' => ['int', 0],
+	'cpb_progress_max' => ['int', 100],
+	'cpb_progress_show' => ['bool', TRUE],
+	'cpb_progress_position' => ['int', 0],
+	'cpb_progress_percent' => ['bool', TRUE],
+	'cpb_progress_label' => ['str', ''],
+	'cpb_mouseover' => ['int', 0],
+	'cpb_gradient' => ['int', 0],
+	'cpb_style' => ['int', 0],
 ];
-$param_list_str = [
-	'g_class', 'custom_css', 'header',
-	'color_text_default', 'color_bg_default', 'color_border_default', 'color_filled_default',
-	'color_empty_default', 'color_3d_default'
+
+$cpb_params_bar_overwrite_col = [
+	'cpb_color_text_inherit' => ['bool', TRUE],
+	'cpb_color_text' => ['str', '#000000'],
+	'cpb_color_bg' => ['str', '#FFFFFF'],
+	'cpb_color_border' => ['str', '#777777'],
+	'cpb_color_filled' => ['str', '#66CC66'],
+	'cpb_color_empty' => ['str', '#FF4D4D'],
+	'cpb_color_3d' => ['str', 'rgba(0,0,0,0.5)'],
 ];
-$progress_form_list_bool = [
-	'cpb_title_show', 'cpb_progress_show', 'cpb_progress_percent', 'cpb_lang_force',
-	'cpb_enabled'
-];
-$progress_form_list_int = [
-	'cpb_title_position', 'cpb_progress_position', 'cpb_progress_min', 'cpb_progress_max',
-	'cpb_mouseover', 'cpb_gradient', 'cpb_style', 'cpb_3d'
-];
-$progress_form_list_str = [
-	'cpb_class', 'cpb_title', 'cpb_progress_label', 'cpb_height'
-];
+
 /* building main config */
 $stored_config = $params->toArray();
 $g_cpb_config = [];
-foreach($param_list_bool as $pli) { // sanitize bool params
-	$g_cpb_config[$pli] = $stored_config[$pli] == 1 ? TRUE : FALSE;
+foreach($cpb_params_basic as $name => $arr) {
+	if(!isset($stored_config[$name])) {
+		$g_cpb_config[$name] = $arr[1];
+		continue;
+	}
+	if($arr[0] == 'bool') { // turn params to bool
+		$g_cpb_config[$name] = $stored_config[$name] == 1 ? TRUE : FALSE;
+	} elseif($arr[0] == 'int') { // sanitize int params
+		$g_cpb_config[$name] = intval($stored_config[$name]);
+	} elseif($arr[0] == 'str') {  // clean up str params
+		$g_cpb_config[$name] = $stored_config[$name] === NULL ? '' : trim($stored_config[$name]);
+	}
 }
-foreach($param_list_int as $pli) { // sanitize int params
-	$g_cpb_config[$pli] = intval($stored_config[$pli]);
-}
-foreach($param_list_str as $pls) { // clean up str params
-	$g_cpb_config[$pls] = $stored_config[$pls] === NULL ? '' : trim($stored_config[$pls]);
-}
+
 $g_cpb_config['cpb'] = [];
 foreach($stored_config['cbp_form'] as $cbp_form => $form_data) {
 	$cbp_form = intval(str_replace('cbp_form', '', $cbp_form));
 	$g_cpb_config['cpb'][$cbp_form] = [];
-	foreach($progress_form_list_bool as $pflb) { // turn params to bool
-		$g_cpb_config['cpb'][$cbp_form][$pflb] = $form_data[$pflb] == 1 ? TRUE : FALSE;
+	foreach($cpb_params_bar as $name => $arr) {
+		if(!isset($form_data[$name])) {
+			$g_cpb_config['cpb'][$cbp_form][$name] = $arr[1];
+			continue;
+		}
+		if($arr[0] == 'bool') { // turn params to bool
+			$g_cpb_config['cpb'][$cbp_form][$name] = $form_data[$name] == 1 ? TRUE : FALSE;
+		} elseif($arr[0] == 'int') { // sanitize int params
+			$g_cpb_config['cpb'][$cbp_form][$name] = intval($form_data[$name]);
+		} elseif($arr[0] == 'str') {  // clean up str params
+			$g_cpb_config['cpb'][$cbp_form][$name] = $form_data[$name] === NULL ? '' : trim($form_data[$name]);
+		}
 	}
-	foreach($progress_form_list_int as $pfli) { // sanitize int params
-		$g_cpb_config['cpb'][$cbp_form][$pfli] = intval($form_data[$pfli]);
+	if(!empty($form_data['cpb_custom_colors'])) { // set color overwrites if available
+		$g_cpb_config['cpb'][$cbp_form]['color_overwrite'] = [];
+		foreach($cpb_params_bar_overwrite_col as $name => $arr) {
+			if(!isset($form_data['cpb_custom_colors']['cpb_custom_colors0'][$name])) {
+				$g_cpb_config['cpb'][$cbp_form]['color_overwrite'][$name] = $arr[1];
+				continue;
+			}
+			if($arr[0] == 'bool') { // turn params to bool
+				$g_cpb_config['cpb'][$cbp_form]['color_overwrite'][$name] = $form_data['cpb_custom_colors']['cpb_custom_colors0'][$name] == 1 ? TRUE : FALSE;
+			} elseif($arr[0] == 'int') { // sanitize int params
+				$g_cpb_config['cpb'][$cbp_form]['color_overwrite'][$name] = intval($form_data['cpb_custom_colors']['cpb_custom_colors0'][$name]);
+			} elseif($arr[0] == 'str') {  // clean up str params
+				$g_cpb_config['cpb'][$cbp_form]['color_overwrite'][$name] = $form_data['cpb_custom_colors']['cpb_custom_colors0'][$name] === NULL ? '' : trim($form_data['cpb_custom_colors']['cpb_custom_colors0'][$name]);
+			}
+		}
 	}
-	foreach($progress_form_list_str as $pfls) { // clean up str params
-		$g_cpb_config['cpb'][$cbp_form][$pfls] = $form_data[$pfls] === NULL ? '' : trim($form_data[$pfls]);
-	}
-	$g_cpb_config['cpb'][$cbp_form]['color_overwrite'] = $form_data['cpb_custom_colors'];
 	$g_cpb_config['cpb'][$cbp_form]['lang_alt'] = [];
 	foreach($form_data['cpb_lang_sub'] as $lang_form) { // load alternative languages
-		$g_cpb_config['cpb'][$cbp_form]['lang_alt'][$lang_form['cpb_lang_sub_lang']] = ['title' => $lang_form['cpb_lang_sub_title'], 'progress_label' => $lang_form['cpb_lang_sub_progress_label']];
+		$g_cpb_config['cpb'][$cbp_form]['lang_alt'][trim($lang_form['cpb_lang_sub_lang'])] = [
+			'title' => $lang_form['cpb_lang_sub_title'] === NULL ? '' : trim($lang_form['cpb_lang_sub_title']),
+			'progress_label' => $lang_form['cpb_lang_sub_progress_label'] === NULL ? '' : trim($lang_form['cpb_lang_sub_progress_label']),
+		];
 	}
 }
 $g_cpb_config['current_lang'] = Factory::getLanguage()->getTag(); // the language the user is currently using
 foreach($stored_config['header_form'] as $header_lang) { // overwrite header if lang set
 	if($g_cpb_config['current_lang'] == $header_lang['header_lang'])
-		$g_cpb_config['header'] = trim($header_lang['header_alt']);
+		$g_cpb_config['header'] = $header_lang['header_alt'] === NULL ? '' : trim($header_lang['header_alt']);
 }
 /* config ready */
 
