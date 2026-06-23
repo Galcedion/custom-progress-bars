@@ -31,73 +31,73 @@ class ModCustomProgressBars
 			'cpb_3d' => '3d_default',
 		];
 
-		foreach($g_cpb_config['cpb'] as &$key) { // iterate progress bars
-			if(!$key['cpb_enabled']) { // if progress bar disabled, remove from list
-				$key = NULL;
+		foreach($g_cpb_config['cpb'] as &$bar) { // iterate progress bars
+			if(!$bar['cpb_enabled']) { // if progress bar disabled, remove from list
+				$bar = NULL;
 				continue;
-			} elseif($key['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $key['lang_alt'])) { // if progress bar lang forced and unavailable, remove from list
-				$key = NULL;
+			} elseif($bar['cpb_lang_force'] && !array_key_exists($g_cpb_config['current_lang'], $bar['lang_alt'])) { // if progress bar lang forced and unavailable, remove from list
+				$bar = NULL;
 				continue;
-			} elseif(array_key_exists($g_cpb_config['current_lang'], $key['lang_alt'])) { // map alternative lang
-				$key['cpb_title'] =  $key['lang_alt'][$g_cpb_config['current_lang']]['title'];
-				$key['cpb_progress_label'] =  $key['lang_alt'][$g_cpb_config['current_lang']]['progress_label'];
+			} elseif(array_key_exists($g_cpb_config['current_lang'], $bar['lang_alt'])) { // map alternative lang
+				$bar['cpb_title'] =  $bar['lang_alt'][$g_cpb_config['current_lang']]['title'];
+				$bar['cpb_progress_label'] =  $bar['lang_alt'][$g_cpb_config['current_lang']]['progress_label'];
 			}
 			foreach($simple_defaults as $cpb_set => $sd) { // set defaults for selects with default option
-				if($key[$cpb_set] == 0)
-					$key[$cpb_set] = $g_cpb_config[$sd];
+				if($bar[$cpb_set] == 0)
+					$bar[$cpb_set] = $g_cpb_config[$sd];
 			}
-			$key['display_title'] = $key['cpb_title_show'] ? $key['cpb_title'] : FALSE;
-			if($key['cpb_progress_percent']) {
-				$tmp_display_progress = round(100 / $key['cpb_progress_max'] * $key['cpb_progress_min']) . ' %';
+			$bar['display_title'] = $bar['cpb_title_show'] ? $bar['cpb_title'] : FALSE;
+			if($bar['cpb_progress_percent']) {
+				$tmp_display_progress = round(100 / $bar['cpb_progress_max'] * $bar['cpb_progress_min']) . ' %';
 			} else {
-				$tmp_display_progress = $key['cpb_progress_min'] . ' / ' . $key['cpb_progress_max'];
-				$tmp_display_progress .= (empty($key['cpb_progress_min']) ? '' : ' ' . $key['cpb_progress_label']);
+				$tmp_display_progress = $bar['cpb_progress_min'] . ' / ' . $bar['cpb_progress_max'];
+				$tmp_display_progress .= (empty($bar['cpb_progress_min']) ? '' : ' ' . $bar['cpb_progress_label']);
 			}
-			if($key['cpb_progress_show']) { // prepare progress text
-				$key['display_progress'] = $tmp_display_progress;
+			if($bar['cpb_progress_show']) { // prepare progress text
+				$bar['display_progress'] = $tmp_display_progress;
 			} else {
-				$key['display_progress'] = FALSE;
+				$bar['display_progress'] = FALSE;
 			}
-			$key['cpb_height'] = str_replace(' ', '', str_replace(';', '', $key['cpb_height']));
-			if(is_numeric($key['cpb_height'])) {
-				$key['cpb_height'] .= 'px';
+			$bar['cpb_height'] = str_replace(' ', '', str_replace(';', '', $bar['cpb_height']));
+			if(is_numeric($bar['cpb_height'])) {
+				$bar['cpb_height'] .= 'px';
 			}
 			/* build tooltip */
-			$key['tooltip'] = ''; // None (1) or out of bounds
-			if($key['cpb_mouseover'] == 2) // Show title
-				$key['tooltip'] = ' title="' . $key['cpb_title'] . '"';
-			elseif($key['cpb_mouseover'] == 3) // Show progress
-				$key['tooltip'] = ' title="' . $tmp_display_progress . '"';
-			elseif($key['cpb_mouseover'] == 4) { // Show progress (no label)
-				if($key['cpb_progress_percent']) {
-					$key['tooltip'] = ' title="' . round(100 / $key['cpb_progress_max'] * $key['cpb_progress_min']) . '"';
+			$bar['tooltip'] = ''; // None (1) or out of bounds
+			if($bar['cpb_mouseover'] == 2) // Show title
+				$bar['tooltip'] = ' title="' . $bar['cpb_title'] . '"';
+			elseif($bar['cpb_mouseover'] == 3) // Show progress
+				$bar['tooltip'] = ' title="' . $tmp_display_progress . '"';
+			elseif($bar['cpb_mouseover'] == 4) { // Show progress (no label)
+				if($bar['cpb_progress_percent']) {
+					$bar['tooltip'] = ' title="' . round(100 / $bar['cpb_progress_max'] * $bar['cpb_progress_min']) . '"';
 				} else {
-					$key['tooltip'] = ' title="' . $key['cpb_progress_min'] . ' / ' . $key['cpb_progress_max'] . '"';
+					$bar['tooltip'] = ' title="' . $bar['cpb_progress_min'] . ' / ' . $bar['cpb_progress_max'] . '"';
 				}
 			}
 			/* set colors */
-			if(empty($key['color_overwrite'])) {
-				$key['cpb_color_text'] = $g_cpb_config['color_text_inherit_default'] ? '' : $g_cpb_config['color_text_default'];
-				$key['cpb_color_bg'] = $g_cpb_config['color_bg_default'];
-				$key['cpb_color_border'] = $g_cpb_config['color_border_default'];
-				$key['cpb_color_filled'] = $g_cpb_config['color_filled_default'];
-				$key['cpb_color_empty'] = $g_cpb_config['color_empty_default'];
-				$key['cpb_color_3d'] = $g_cpb_config['color_3d_default'];
+			if(empty($bar['color_overwrite'])) {
+				$bar['cpb_color_text'] = $g_cpb_config['color_text_inherit_default'] ? '' : $g_cpb_config['color_text_default'];
+				$bar['cpb_color_bg'] = $g_cpb_config['color_bg_default'];
+				$bar['cpb_color_border'] = $g_cpb_config['color_border_default'];
+				$bar['cpb_color_filled'] = $g_cpb_config['color_filled_default'];
+				$bar['cpb_color_empty'] = $g_cpb_config['color_empty_default'];
+				$bar['cpb_color_3d'] = $g_cpb_config['color_3d_default'];
 			} else {
-				$key['cpb_color_text'] = $key['color_overwrite']['cpb_color_text'] == 0 ? '' : $key['color_overwrite']['cpb_color_text'];
-				$key['cpb_color_bg'] = $key['color_overwrite']['cpb_color_bg'];
-				$key['cpb_color_border'] = $key['color_overwrite']['cpb_color_border'];
-				$key['cpb_color_filled'] = $key['color_overwrite']['cpb_color_filled'];
-				$key['cpb_color_empty'] = $key['color_overwrite']['cpb_color_empty'];
-				$key['cpb_color_3d'] = $key['color_overwrite']['cpb_color_3d'];
+				$bar['cpb_color_text'] = $bar['color_overwrite']['cpb_color_text'] == 0 ? '' : $bar['color_overwrite']['cpb_color_text'];
+				$bar['cpb_color_bg'] = $bar['color_overwrite']['cpb_color_bg'];
+				$bar['cpb_color_border'] = $bar['color_overwrite']['cpb_color_border'];
+				$bar['cpb_color_filled'] = $bar['color_overwrite']['cpb_color_filled'];
+				$bar['cpb_color_empty'] = $bar['color_overwrite']['cpb_color_empty'];
+				$bar['cpb_color_3d'] = $bar['color_overwrite']['cpb_color_3d'];
 			}
 			/* calculate progress width */
-			if($key['cpb_progress_min'] >= $key['cpb_progress_max'])
-				$key['progress_width'] = 'width:100%;';
+			if($bar['cpb_progress_min'] >= $bar['cpb_progress_max'])
+				$bar['progress_width'] = 'width:100%;';
 			else
-				$key['progress_width'] = 'width:' . (100 / $key['cpb_progress_max'] * $key['cpb_progress_min']) . '%;';
+				$bar['progress_width'] = 'width:' . (100 / $bar['cpb_progress_max'] * $bar['cpb_progress_min']) . '%;';
 		}
-		unset($key);
+		unset($bar);
 		return array_filter($g_cpb_config['cpb']);
 	}
 }
