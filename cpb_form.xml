@@ -44,6 +44,26 @@
 	</field>
 	<field
 		fieldset="base"
+		name="cpb_use_segments"
+		type="radio"
+		default="0"
+		label="MOD_CPB_SEGMENTS_ENABLE_LABEL"
+		layout="joomla.form.field.radio.switcher">
+		<option value="0">JNo</option>
+		<option value="1">JYes</option>
+	</field>
+	<field
+		fieldset="base"
+		name="cpb_segments_counts"
+		type="number"
+		label="MOD_CPB_SEGMENTS_COUNT_LABEL"
+		default="5"
+		min="2"
+		max="50"
+		step="1"
+		showon="cpb_use_segments:1"/>
+	<field
+		fieldset="base"
 		name="cpb_lang_force"
 		type="radio"
 		default="0"

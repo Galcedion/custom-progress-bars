@@ -27,6 +27,10 @@ if($cpb['cpb_style'] == 2) { // rounded
 	$cpb_progress_style .= 'transform:skewX(-30deg);';
 	$cpb_innertext_style = ' style="transform:skewX(30deg);"';
 }
+if($cpb['cpb_use_segments']) {
+	$segment_size = 100 / $cpb['cpb_segments_counts']. '%';
+	$cpb_bar_style .= 'mask-image:repeating-linear-gradient(90deg, white, white calc(' . $segment_size . ' - 3px), transparent calc(' . $segment_size . ' - 1px), transparent ' . $segment_size . ');';
+}
 /* building gradient */
 if($cpb['cpb_gradient'] == 1) { // filled
 	$cpb_bar_style .= 'background-image:linear-gradient(' . $cpb['cpb_color_filled'] . ');';
