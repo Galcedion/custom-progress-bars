@@ -207,7 +207,8 @@
 		<option value="1">MOD_CPB_GRADIENT_FILLED</option>
 		<option value="2">MOD_CPB_GRADIENT_EMPTY</option>
 		<option value="3">MOD_CPB_GRADIENT_MIX</option>
-		<option value="4">MOD_CPB_GRADIENT_LINEAR</option>
+		<option value="4">MOD_CPB_GRADIENT_LINEAR_SIMPLE</option>
+		<option value="5">MOD_CPB_GRADIENT_LINEAR_ACTUAL</option>
 	</field>
 	<field
 		fieldset="overwrite"

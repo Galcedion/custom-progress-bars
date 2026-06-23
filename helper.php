@@ -93,9 +93,9 @@ class ModCustomProgressBars
 			}
 			/* calculate progress width */
 			if($bar['cpb_progress_min'] >= $bar['cpb_progress_max'])
-				$bar['progress_width'] = 'width:100%;';
+				$bar['progress_width'] = '100%';
 			else
-				$bar['progress_width'] = 'width:' . (100 / $bar['cpb_progress_max'] * $bar['cpb_progress_min']) . '%;';
+				$bar['progress_width'] = (100 / $bar['cpb_progress_max'] * $bar['cpb_progress_min']) . '%';
 		}
 		unset($bar);
 		return array_filter($g_cpb_config['cpb']);
