@@ -51,11 +51,11 @@ if($cpb['cpb_3d'] == 2 || $cpb['cpb_3d'] == 4) { // background; all or only back
 $cpb_title_class = '';
 $cpb_progress_label_class = '';
 $colcount = 0;
-if($cpb['cpb_title_position'] >= 4) {
+if($cpb['cpb_title_position'] >= 4 && $cpb['cpb_title_show']) {
 	++$colcount;
 	$cpb_title_class = ' class="col"';
 }
-if($cpb['cpb_progress_position'] >= 4) {
+if($cpb['cpb_progress_position'] >= 4 && $cpb['cpb_progress_show']) {
 	++$colcount;
 	$cpb_progress_label_class = ' class="col"';
 }
