@@ -21,6 +21,8 @@ $cpb_params_basic = [
 	'g_class' => ['str', 'g-mod-cpb'],
 	'width' => ['int', 100],
 	'horizontal_position' => ['int', 1],
+	'vertical_spacer' => ['int', 1],
+	'vertical_spacer_margin' => ['str', ''],
 	'header' => ['str', ''],
 	'custom_css' => ['str', ''],
 	'title_position_default' => ['int', 1],
@@ -129,6 +131,10 @@ $g_cpb_config['current_lang'] = Factory::getLanguage()->getTag(); // the languag
 foreach($stored_config['header_form'] as $header_lang) { // overwrite header if lang set
 	if($g_cpb_config['current_lang'] == $header_lang['header_lang'])
 		$g_cpb_config['header'] = $header_lang['header_alt'] === NULL ? '' : trim($header_lang['header_alt']);
+}
+$g_cpb_config['vertical_spacer_margin'] = str_replace(' ', '', str_replace(';', '', $g_cpb_config['vertical_spacer_margin']));
+if(is_numeric($g_cpb_config['vertical_spacer_margin'])) {
+	$g_cpb_config['vertical_spacer_margin'] .= 'px';
 }
 /* config ready */
 

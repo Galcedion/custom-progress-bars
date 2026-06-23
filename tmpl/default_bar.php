@@ -63,9 +63,12 @@ if($colcount > 0) {
 	$cpb_progress_class .= ' col-' . (12 - $colcount);
 	$cpb['cpb_class'] .= (empty($cpb['cpb_class']) ? '' : ' ') . 'row g-0';
 }
+/* build bar top level class and style */
 $cpb['cpb_class'] = 'class="text-center my-1' . (empty($cpb['cpb_class']) ? '' : ' ' . $cpb['cpb_class']) . '"';
+$cpb['cpb_class_style'] = isset($cpb['vspacer_margin']) && !empty($cpb['vspacer_margin']) ? ' style="margin-bottom:' . $cpb['vspacer_margin'] . '!important"' : '';
+$cpb['cpb_class_style'] = $cpb['cpb_class'] . (empty($cpb['cpb_class_style']) ? '' : $cpb['cpb_class_style'] . '');
 ?>
-<div<?=$cpb_color_text;?> <?=$cpb['cpb_class'];?><?=$cpb['tooltip'];?>>
+<div<?=$cpb_color_text;?> <?=$cpb['cpb_class_style'];?><?=$cpb['tooltip'];?>>
 	<?php if($cpb['display_title'] && ($cpb['cpb_title_position'] == 2 || $cpb['cpb_title_position'] == 4)): ?>
 	<div<?=$cpb_title_class;?>><?=$cpb['display_title'];?></div>
 	<?php endif; ?>

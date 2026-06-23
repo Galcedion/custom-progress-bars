@@ -54,6 +54,23 @@
 					<option value="4">MOD_CPB_HPOS_RIGHT</option>
 				</field>
 				<field
+					name="vertical_spacer"
+					type="list"
+					default="1"
+					label="MOD_CPB_VERTICAL_SPACER_LABEL"
+					description="MOD_CPB_VERTICAL_SPACER_DESC">
+					<option value="1">MOD_CPB_VSPACER_NONE</option>
+					<option value="2">MOD_CPB_VSPACER_HR</option>
+					<option value="3">MOD_CPB_VSPACER_MARGIN</option>
+				</field>
+				<field
+					name="vertical_spacer_margin"
+					type="text"
+					label="MOD_CPB_VERTICAL_SPACER_MARGIN_LABEL"
+					default=""
+					description="MOD_CPB_VERTICAL_SPACER_MARGIN_DESC"
+					showon="vertical_spacer:3"/>
+				<field
 					name="header"
 					type="editor"
 					label="MOD_CPB_HEADER_LABEL"

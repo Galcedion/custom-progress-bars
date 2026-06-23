@@ -21,10 +21,17 @@ elseif($g_cpb_config['horizontal_position'] == 3)
 	$main_class .= ' ms-0 me-auto';
 elseif($g_cpb_config['horizontal_position'] == 4)
 	$main_class .= ' ms-auto me-0';
+$num_bars = count($g_cpb_config['cpb']);
 ?>
 <div class="<?=$main_class;?>" style="width:<?=$g_cpb_config['width'];?>%">
 	<?=$g_cpb_config['header'];?>
-	<?php foreach($g_cpb_config['cpb'] as $cpb): ?>
+	<?php foreach($g_cpb_config['cpb'] as $bar_id => $cpb): ?>
+		<?php if($g_cpb_config['vertical_spacer'] == 3 && ($bar_id + 1) < $num_bars): ?>
+			<?php $cpb['vspacer_margin'] = $g_cpb_config['vertical_spacer_margin']; ?>
+		<?php endif; ?>
 		<?php require ModuleHelper::getLayoutPath('mod_customprogressbars', $params->get('layout', 'default') . '_bar'); ?>
+		<?php if($g_cpb_config['vertical_spacer'] == 2): ?>
+			<hr>
+		<?php endif; ?>
 	<?php endforeach; ?>
 </div>
