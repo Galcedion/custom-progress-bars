@@ -6,14 +6,15 @@ After installing the module, open it via the "(Home) Dashboard" and the "Module"
 The module has settings affecting all progress bars as well as individual progress bars.
 ### Global Settings
 - set class name for module's HTML
-- set width and horizontal position
-- set title and into text (supports multiple languages)
+- set width and horizontal position for the module and distance between the bars
+- set title and intro text (supports multiple languages)
 - ability to add custom CSS for pages with the module
 - set defaults for colors, display style and displayed texts
 ### Progress Bar Settings
 - enable or disable the progress bar without deleting it
 - set class name for the progress bar
 - set height of the progress bar
+- set various style choices like gradient, bar style, 3D effect and segmentation
 - set text and position for title and progress (supports multiple languages)
 - progress can be in percent or in a custom unit
 - overwrite defaults for colors, display style and displayed texts
