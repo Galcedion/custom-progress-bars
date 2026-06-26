@@ -32,15 +32,15 @@ if($cpb['cpb_use_segments']) {
 	$cpb_bar_style .= 'mask-image:repeating-linear-gradient(90deg, white, white calc(' . $segment_size . ' - 3px), transparent calc(' . $segment_size . ' - 1px), transparent ' . $segment_size . ');';
 }
 /* building gradient */
+if($cpb['cpb_progress_min'] > $cpb['cpb_progress_max'])
+	$cpb['cpb_progress_min'] = $cpb['cpb_progress_max'];
+$cpb['cpb_progress_min'] = round(100 / $cpb['cpb_progress_max'] * $cpb['cpb_progress_min'], 2);
 if($cpb['cpb_gradient'] == 1) { // filled
 	$cpb_bar_style .= 'background-image:linear-gradient(' . $cpb['cpb_color_filled'] . ');';
 } elseif($cpb['cpb_gradient'] == 2) { // empty
 	$cpb_bar_style .= 'background-image:linear-gradient(' . $cpb['cpb_color_empty'] . ');';
 } elseif($cpb['cpb_gradient'] == 3) { // mix
 	$cpb_bar_style .= 'background-image:linear-gradient(color-mix(in hsl,';
-	if($cpb['cpb_progress_min'] > $cpb['cpb_progress_max'])
-		$cpb['cpb_progress_min'] = $cpb['cpb_progress_max'];
-	$cpb['cpb_progress_min'] = round(100 / $cpb['cpb_progress_max'] * $cpb['cpb_progress_min'], 2);
 	$cpb_bar_style .= $cpb['cpb_color_filled'] . ' ' . $cpb['cpb_progress_min'] . '%,' . $cpb['cpb_color_empty'] . ' ' . (100 - $cpb['cpb_progress_min']) . '%));';
 } elseif($cpb['cpb_gradient'] == 4) { // linear gradient LEGACY - without calculating the actual progress rate
 	$cpb_bar_style .= 'background-image:linear-gradient(90deg,' . $cpb['cpb_color_empty'] . ',' . $cpb['cpb_color_filled'] . ');';

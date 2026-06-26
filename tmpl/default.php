@@ -30,7 +30,7 @@ $num_bars = count($g_cpb_config['cpb']);
 			<?php $cpb['vspacer_margin'] = $g_cpb_config['vertical_spacer_margin']; ?>
 		<?php endif; ?>
 		<?php require ModuleHelper::getLayoutPath('mod_customprogressbars', $params->get('layout', 'default') . '_bar'); ?>
-		<?php if($g_cpb_config['vertical_spacer'] == 2): ?>
+		<?php if($g_cpb_config['vertical_spacer'] == 2 && ($bar_id + 1) < $num_bars): ?>
 			<hr>
 		<?php endif; ?>
 	<?php endforeach; ?>
